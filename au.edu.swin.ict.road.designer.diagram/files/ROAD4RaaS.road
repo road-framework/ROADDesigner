@@ -1,0 +1,296 @@
+<?xml version="1.0" encoding="ASCII"?>
+<smc:System name="usdl" xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:smc="http://smc/1.0">
+  <smc rulesDir="src/main/rules" compositeRuleFile="" Description="SMC of ROAD4RaaS">
+    <Role id="REG" name="Registry">
+      <Task id="GetServiceCapabilityAnon" isMsgDriven="true">
+        <In isResponse="true">
+          <Operation name="GetService" Return="GetServiceReturn">
+            <Parameter Type="String" Name="Service_ID"/>
+          </Operation>
+        </In>
+        <Out deliveryType="pull" Transformation="GetServiceCapabilityAnon.xslt">
+          <Operation name="GetService" Return="GetServiceReturn">
+            <Parameter Type="String" Name="Service_ID"/>
+          </Operation>
+        </Out>
+        <ResultMsg transformation="GetServiceCapabilityAnonRes.xslt" contractId="SC1-REG" termId="GetServiceCapabilityAnon" isResponse="true"/>
+        <SrcMsg contractId="SC1-REG" termId="GetServiceCapabilityAnon"/>
+      </Task>
+      <Task id="GetServiceCapability" isMsgDriven="true">
+        <In isResponse="true">
+          <Operation name="GetService" Return="GetServiceReturn">
+            <Parameter Type="String" Name="Service_ID"/>
+          </Operation>
+        </In>
+        <Out Transformation="GetServiceCapability.xslt">
+          <Operation name="GetService" Return="GetServiceReturn">
+            <Parameter Type="String" Name="Service_ID"/>
+          </Operation>
+        </Out>
+        <ResultMsg transformation="GetServiceCapabilityRes.xslt" contractId="SC2-REG" termId="GetServiceCapability" isResponse="true"/>
+        <SrcMsg contractId="SC2-REG" termId="GetServiceCapability"/>
+      </Task>
+      <Task id="GetServiceTechnicalInterface" isMsgDriven="true">
+        <In isResponse="true">
+          <Operation name="GetService" Return="GetServiceReturn">
+            <Parameter Type="String" Name="Service_ID"/>
+          </Operation>
+        </In>
+        <Out Transformation="GetServiceTechnicalInterface.xslt">
+          <Operation name="GetService" Return="GetServiceReturn">
+            <Parameter Type="String" Name="Service_ID"/>
+          </Operation>
+        </Out>
+        <ResultMsg transformation="GetServiceTechnicalInterfaceRes.xslt" contractId="SC2-REG" termId="GetServiceTechnicalInterface" isResponse="true"/>
+        <SrcMsg contractId="SC2-REG" termId="GetServiceTechnicalInterface"/>
+      </Task>
+      <Task id="GetService" isMsgDriven="true">
+        <In isResponse="true">
+          <Operation name="GetService" Return="GetServiceReturn">
+            <Parameter Type="String" Name="Service_ID"/>
+          </Operation>
+        </In>
+        <Out Transformation="GetService.xslt">
+          <Operation name="GetService" Return="GetServiceReturn">
+            <Parameter Type="String" Name="Service_ID"/>
+          </Operation>
+        </Out>
+        <ResultMsg transformation="GetServiceRes.xslt" contractId="SP1-REG" termId="GetService" isResponse="true"/>
+        <SrcMsg contractId="SP1-REG" termId="GetService"/>
+      </Task>
+      <Task id="CreateProvider" isMsgDriven="true">
+        <In isResponse="true">
+          <Operation name="CreateProvider" Return="String">
+            <Parameter Type="CreateProviderValue" Name="Provider_VALUE"/>
+          </Operation>
+        </In>
+        <Out Transformation="CreateProvider.xslt">
+          <Operation name="CreateProvider" Return="String">
+            <Parameter Type="CreateProviderValue" Name="Provider_VALUE"/>
+          </Operation>
+        </Out>
+        <ResultMsg transformation="CreateProviderRes.xslt" contractId="SP1-REG" termId="CreateProvider" isResponse="true"/>
+        <SrcMsg contractId="SP1-REG" termId="CreateProvider"/>
+      </Task>
+      <Task id="CreateService" isMsgDriven="true">
+        <In isResponse="true">
+          <Operation name="CreateService" Return="String">
+            <Parameter Type="CreateServiceValue" Name="Service_VALUE"/>
+          </Operation>
+        </In>
+        <Out Transformation="CreateService.xslt">
+          <Operation name="CreateService" Return="String">
+            <Parameter Type="CreateServiceValue" Name="Service_VALUE"/>
+          </Operation>
+        </Out>
+        <ResultMsg transformation="CreateServiceRes.xslt" contractId="SP1-REG" termId="CreateService" isResponse="true"/>
+        <SrcMsg contractId="SP1-REG" termId="CreateService"/>
+      </Task>
+      <Task id="CreateTechnicalInterface" isMsgDriven="true">
+        <In isResponse="true">
+          <Operation name="CreateTechnicalInterface" Return="String">
+            <Parameter Type="CreateTechnicalInterfaceValue" Name="TechnicalInterface_VALUE"/>
+          </Operation>
+        </In>
+        <Out Transformation="CreateTechnicalInterface.xslt">
+          <Operation name="CreateTechnicalInterface" Return="String">
+            <Parameter Type="CreateTechnicalInterfaceValue" Name="TechnicalInterface_VALUE"/>
+          </Operation>
+        </Out>
+        <ResultMsg transformation="CreateTechnicalInterfaceRes.xslt" contractId="SP1-REG" termId="CreateTechnicalInterface" isResponse="true"/>
+        <SrcMsg contractId="SP1-REG" termId="CreateTechnicalInterface"/>
+      </Task>
+      <Task id="SettechnicalInterfaces" isMsgDriven="true">
+        <In isResponse="true">
+          <Operation name="SettechnicalInterfaces" Return="String">
+            <Parameter Type="String" Name="Service_ROOTID"/>
+            <Parameter Type="String" Name="TechnicalInterface_ID"/>
+          </Operation>
+        </In>
+        <Out Transformation="SettechnicalInterfaces.xslt">
+          <Operation name="SettechnicalInterfaces" Return="String">
+            <Parameter Type="String" Name="Service_ROOTID"/>
+            <Parameter Type="String" Name="TechnicalInterface_ID"/>
+          </Operation>
+        </Out>
+        <ResultMsg transformation="SettechnicalInterfacesRes.xslt" contractId="SP1-REG" termId="SettechnicalInterface" isResponse="true"/>
+        <SrcMsg contractId="SP1-REG" termId="SettechnicalInterface"/>
+      </Task>
+      <Task id="CreateCapability" isMsgDriven="true">
+        <In isResponse="true">
+          <Operation name="CreateCapability" Return="String">
+            <Parameter Type="CreateCapabilityValue" Name="Capability_VALUE"/>
+          </Operation>
+        </In>
+        <Out Transformation="CreateCapability.xslt">
+          <Operation name="CreateCapability" Return="String">
+            <Parameter Type="CreateCapabilityValue" Name="Capability_VALUE"/>
+          </Operation>
+        </Out>
+        <ResultMsg transformation="CreateCapabilityRes.xslt" contractId="SP1-REG" termId="CreateCapability" isResponse="true"/>
+        <SrcMsg contractId="SP1-REG" termId="CreateCapability"/>
+      </Task>
+      <Task id="Setcapabilities" isMsgDriven="true">
+        <In isResponse="true">
+          <Operation name="" Return="String">
+            <Parameter Type="String" Name="Service_ROOTID"/>
+            <Parameter Type="String" Name="Capability_ID"/>
+          </Operation>
+        </In>
+        <Out Transformation="Setcapabilities.xslt">
+          <Operation name="" Return="String">
+            <Parameter Type="String" Name="Service_ROOTID"/>
+            <Parameter Type="String" Name="Capability_ID"/>
+          </Operation>
+        </Out>
+        <ResultMsg transformation="SetcapabilitiesRes.xslt" contractId="SP1-REG" termId="Setcapabilities" isResponse="true"/>
+        <SrcMsg contractId="SP1-REG" termId="Setcapabilities"/>
+      </Task>
+    </Role>
+    <Role id="SC1" name="Consumer1">
+      <Task id="Task1" isMsgDriven="true">
+        <Out Transformation="Task1.xslt" isResponse="true"/>
+        <ResultMsg transformation="transformation0.xslt" contractId="SC1-REG" termId="GetServiceCapabilityAnon" isResponse="true"/>
+      </Task>
+    </Role>
+    <Role id="SC2" name="Consumer2"/>
+    <Role id="SP1" name="ServiceProvider"/>
+    <Role id="MON" name="MonitoringClientApp">
+      <FactLink MonitorFact="true" Fact="InvocationID"/>
+    </Role>
+    <Role id="RUP" name="RegisteredUserProvider">
+      <Task id="Task1" isMsgDriven="true">
+        <In isResponse="true"/>
+        <Out Transformation="Task12.xslt"/>
+        <ResultMsg transformation="transformation0.xslt" factId="RegistrationStatus"/>
+        <ResultMsg transformation="Task12.xslt" factId="UsageStat"/>
+        <SrcMsg factId="MonthlyPay"/>
+        <SrcMsg factId="MonthlyPay"/>
+      </Task>
+      <ExternalFactLink Fact="UserID">
+        <ProvisionRegime SyncInterval="2"/>
+      </ExternalFactLink>
+      <ExternalFactLink Fact="UsageStatID">
+        <ProvisionRegime SyncInterval="2"/>
+      </ExternalFactLink>
+      <ExternalFactLink Fact="MonthlyPayID">
+        <AcquisitionRegime SyncInterval="2"/>
+      </ExternalFactLink>
+    </Role>
+    <Role id="USAGE_METER" name="USAGE_METER">
+      <ExternalFactLink Fact="UsageStatID"/>
+    </Role>
+    <Role id="PAYMENT_MGR" name="PAYMENT_MGR">
+      <FactLink Fact="MonthlyPayID"/>
+    </Role>
+    <Contract name="SC1-REG" type="permissive" ruleFile="src/main/rules/SC1-REG.drl" RoleAID="SC1" RoleBID="REG" Description="This is the contract btwn the Consumer1 and Registry" State="Incipient">
+      <FactLink Fact="InvocationID"/>
+      <Term name="GetServiceCapabilityAnon" Description="Allow consumers to retrieve service capability">
+        <Operation name="GetServiceCapabilityAnon" Return="GetCapabilityReturn">
+          <Parameter Type="String" Name="Service_ID"/>
+        </Operation>
+      </Term>
+    </Contract>
+    <Contract name="SC2-REG" type="permissive" ruleFile="src/main/rules/SC2-REG.drl" RoleAID="SC2" RoleBID="REG" Description="This is the contract btwn the Consumer2 and Registry" State="Incipient">
+      <FactLink Fact="InvocationID"/>
+      <FactLink MonitorFact="true" Fact="UserID"/>
+      <FactLink Fact="UsageStatID"/>
+      <Term name="GetServiceCapability" Description="Allow consumers to retrieve service capability">
+        <Operation name="GetServiceCapability" Return="GetCapabilityReturn">
+          <Parameter Type="String" Name="User_ID"/>
+          <Parameter Type="String" Name="Service_ID"/>
+        </Operation>
+      </Term>
+      <Term name="GetServiceTechnicalInterface" Description="Get technical interface description for the corresponding service">
+        <Operation name="GetServiceTechnicalInterface" Return="GetTechnicalInterfaceReturn">
+          <Parameter Type="String" Name="User_ID"/>
+          <Parameter Type="String" Name="Service_ID"/>
+        </Operation>
+      </Term>
+      <Term name="GetService" Description="Retrieving service users">
+        <Operation name="GetService" Return="GetServiceReturn">
+          <Parameter Type="String" Name="User_ID"/>
+          <Parameter Type="String" Name="Service_ID"/>
+        </Operation>
+      </Term>
+    </Contract>
+    <Contract name="SP1-REG" type="permissive" ruleFile="src/main/rules/SP1-REG.drl" RoleAID="SP1" RoleBID="REG" Description="This is the contract btwn the ServiceProvider and Registry" State="Incipient">
+      <FactLink Fact="InvocationID"/>
+      <FactLink MonitorFact="true" Fact="UserID"/>
+      <FactLink MonitorFact="true" Fact="MonthlyPayID"/>
+      <Term name="GetService" Description="Get full USDL description for the service">
+        <Operation name="GetService" Return="GetServiceReturn">
+          <Parameter Type="String" Name="User_ID"/>
+          <Parameter Type="String" Name="Service_ID"/>
+        </Operation>
+      </Term>
+      <Term name="CreateProvider" Description="Register a service provider ">
+        <Operation name="CreateProvider" Return="String">
+          <Parameter Type="String" Name="User_ID"/>
+          <Parameter Type="String" Name="guid"/>
+        </Operation>
+      </Term>
+      <Term name="CreateService" Description="Create full USDL service description">
+        <Operation name="CreateService" Return="String">
+          <Parameter Type="String" Name="User_ID"/>
+          <Parameter Type="String" Name="guid"/>
+          <Parameter Type="String" Name="name"/>
+          <Parameter Type="String" Name="provider"/>
+          <Parameter Type="String" Name="publicationTime"/>
+          <Parameter Type="String" Name="version"/>
+          <Parameter Type="String" Name="nature"/>
+        </Operation>
+      </Term>
+      <Term name="CreateTechnicalInterface" Description="Create a technical interface description for a service">
+        <Operation name="CreateTechnicalInterface" Return="String">
+          <Parameter Type="String" Name="User_ID"/>
+          <Parameter Type="String" Name="name"/>
+          <Parameter Type="String" Name="type"/>
+        </Operation>
+      </Term>
+      <Term name="SettechnicalInterface" Description="Associate a technical interface description with a service">
+        <Operation name="SettechnicalInterface" Return="String">
+          <Parameter Type="String" Name="User_ID"/>
+          <Parameter Type="String" Name="Service_ROOTID"/>
+          <Parameter Type="String" Name="TechnicalInterface_ID"/>
+        </Operation>
+      </Term>
+      <Term name="CreateCapability" Description="Register a service capability">
+        <Operation name="CreateCapability" Return="String">
+          <Parameter Type="String" Name="User_ID"/>
+          <Parameter Type="String" Name="action_name"/>
+          <Parameter Type="String" Name="name"/>
+        </Operation>
+      </Term>
+      <Term name="Setcapabilities" Description="Associate service capabilities with a service">
+        <Operation name="Setcapabilities" Return="String">
+          <Parameter Type="String" Name="User_ID"/>
+          <Parameter Type="String" Name="Service_ROOTID"/>
+          <Parameter Type="String" Name="Capability_ID"/>
+        </Operation>
+      </Term>
+    </Contract>
+    <PlayerBinding id="REG-Binding" Endpoint="http://ec2-50-16-55-169.compute-1.amazonaws.com/raas.usdl.server/services/servicerepository?wsdl=ServiceRepository.wsdl" Description="Description" Role="REG" player="Registry"/>
+    <PlayerBinding id="SC1-Binding" Role="SC1" player="SC1-Player"/>
+    <PlayerBinding id="SC2-Binding" Role="SC2" player="SC2-Player"/>
+    <PlayerBinding id="SP1-Binding" Role="SP1" player="SP1-Player"/>
+    <PlayerBinding id="PAYMENT_MGR-Binding" Role="PAYMENT_MGR" player="PAYMENT_MGR-Player"/>
+    <Fact name="ServiceStat" source="External" Identifier="InvocationID">
+      <Attribute>Count</Attribute>
+    </Fact>
+    <Fact name="RegistrationStatus" source="External" Identifier="UserID">
+      <Attribute>Block</Attribute>
+    </Fact>
+    <Fact name="UsageStat" source="External" Identifier="UsageStatID">
+      <Attribute>Count</Attribute>
+    </Fact>
+    <Fact name="MonthlyPay" source="External" Identifier="MonthlyPayID">
+      <Attribute>Count</Attribute>
+    </Fact>
+  </smc>
+  <player name="Registry" binding="REG-Binding"/>
+  <player name="SC1-Player" binding="SC1-Binding"/>
+  <player name="SC2-Player" binding="SC2-Binding"/>
+  <player name="SP1-Player" binding="SP1-Binding"/>
+  <player name="PAYMENT_MGR-Player" binding="PAYMENT_MGR-Binding"/>
+</smc:System>

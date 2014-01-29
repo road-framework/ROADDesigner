@@ -1,0 +1,581 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+<plugin>
+
+   <extension point="org.eclipse.team.core.fileTypes" id="repo-ftype">
+      <?gmfgen generated="true"?>
+      <fileTypes type="text" extension="road_diagram"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.extension_parser" id="resource-factory">
+      <?gmfgen generated="true"?>
+      <parser
+         type="road_diagram"
+         class="org.eclipse.gmf.runtime.emf.core.resources.GMFResourceFactory">
+      </parser>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors" id="gmf-editor">
+      <?gmfgen generated="false"?>
+      <editor
+         id="au.edu.swin.ict.road.designer.smc.diagram.part.SmcDiagramEditorID"
+         name="%editorName"
+         icon="icons/obj16/SmcDiagramFile.gif"
+         extensions="road_diagram"
+         default="true"
+         class="au.edu.swin.ict.road.designer.diagram.editors.MultiPageSmcDiagramEditor"
+         matchingStrategy="au.edu.swin.ict.road.designer.smc.diagram.part.SmcMatchingStrategy"
+         contributorClass="au.edu.swin.ict.road.designer.diagram.editors.MultiPageSmcDiagramEditorContributor">
+      </editor>
+   </extension>
+   
+   <extension point="org.eclipse.ui.contexts" id="ui-context">
+      <?gmfgen generated="true"?>
+      <context
+         description="%context.description"
+         id="au.edu.swin.ict.road.designer.smc.diagram.ui.diagramContext"
+         name="%context.name"
+         parentId="org.eclipse.gmf.runtime.diagram.ui.diagramContext">
+      </context>
+   </extension>
+
+   <extension point="org.eclipse.ui.newWizards" id="creation-wizard">
+      <?gmfgen generated="true"?>
+  	  <wizard
+  	     name="%newWizardName"
+  	     icon="icons/obj16/SmcDiagramFile.gif"
+  	     category="org.eclipse.ui.Examples"
+  	     class="au.edu.swin.ict.road.designer.smc.diagram.part.SmcCreationWizard"
+  	     id="au.edu.swin.ict.road.designer.smc.diagram.part.SmcCreationWizardID">
+  	  	 <description>%newWizardDesc</description>  
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.popupMenus" id="init-diagram-action">
+      <?gmfgen generated="true"?>
+      <objectContribution
+            id="au.edu.swin.ict.road.designer.diagram.InitDiagram"
+            nameFilter="*.road"
+            objectClass="org.eclipse.core.resources.IFile">
+         <action
+               label="%initDiagramActionLabel"
+               class="au.edu.swin.ict.road.designer.smc.diagram.part.SmcInitDiagramFileAction"
+               menubarPath="additions"
+               enablesFor="1"
+               id="au.edu.swin.ict.road.designer.diagram.InitDiagramAction">
+         </action>
+      </objectContribution>
+   </extension>
+	
+   <extension point="org.eclipse.gmf.runtime.common.ui.services.action.globalActionHandlerProviders" id="global-actions">
+      <?gmfgen generated="true"?>
+      <GlobalActionHandlerProvider
+         class="org.eclipse.gmf.runtime.diagram.ui.providers.DiagramGlobalActionHandlerProvider"
+         id="ROADPresentation">
+         <Priority name="Lowest"/>
+         <ViewId id="au.edu.swin.ict.road.designer.smc.diagram.part.SmcDiagramEditorID">
+            <ElementType class="org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart">
+               <GlobalActionId actionId="delete"/>
+            </ElementType>
+            <ElementType class="org.eclipse.gmf.runtime.diagram.ui.editparts.DiagramEditPart">
+               <GlobalActionId actionId="save"/>
+            </ElementType>
+         </ViewId>
+      </GlobalActionHandlerProvider>
+      <GlobalActionHandlerProvider
+         class="org.eclipse.gmf.runtime.diagram.ui.providers.ide.providers.DiagramIDEGlobalActionHandlerProvider"
+         id="ROADPresentationIDE">
+         <Priority name="Lowest"/>
+         <ViewId id="au.edu.swin.ict.road.designer.smc.diagram.part.SmcDiagramEditorID">
+            <ElementType class="org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart">
+               <GlobalActionId actionId="bookmark"/>
+            </ElementType>
+         </ViewId>
+      </GlobalActionHandlerProvider>
+      <GlobalActionHandlerProvider
+            class="org.eclipse.gmf.runtime.diagram.ui.render.providers.DiagramUIRenderGlobalActionHandlerProvider"
+            id="ROADRender">
+         <Priority name="Lowest"/>
+         <ViewId id="au.edu.swin.ict.road.designer.smc.diagram.part.SmcDiagramEditorID">
+            <ElementType class="org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart">
+               <GlobalActionId actionId="cut"/>
+               <GlobalActionId actionId="copy"/>
+               <GlobalActionId actionId="paste"/>
+            </ElementType>
+         </ViewId>
+      </GlobalActionHandlerProvider>
+   </extension>
+
+
+   <extension point="org.eclipse.core.runtime.preferences" id="prefs">
+      <?gmfgen generated="true"?>
+      <initializer class="au.edu.swin.ict.road.designer.smc.diagram.preferences.DiagramPreferenceInitializer"/>
+   </extension>
+
+   <extension point="org.eclipse.ui.preferencePages" id="prefpages">
+      <?gmfgen generated="true"?>
+      <page
+            id="au.edu.swin.ict.road.designer.diagram.general"
+            name="%prefpage.au.edu.swin.ict.road.designer.diagram.general"
+            class="au.edu.swin.ict.road.designer.smc.diagram.preferences.DiagramGeneralPreferencePage">
+      </page>
+      <page
+            id="au.edu.swin.ict.road.designer.diagram.appearance"
+            name="%prefpage.au.edu.swin.ict.road.designer.diagram.appearance"
+            category="au.edu.swin.ict.road.designer.diagram.general"
+            class="au.edu.swin.ict.road.designer.smc.diagram.preferences.DiagramAppearancePreferencePage">
+      </page>
+      <page
+            id="au.edu.swin.ict.road.designer.diagram.connections"
+            name="%prefpage.au.edu.swin.ict.road.designer.diagram.connections"
+            category="au.edu.swin.ict.road.designer.diagram.general"
+            class="au.edu.swin.ict.road.designer.smc.diagram.preferences.DiagramConnectionsPreferencePage">
+      </page>
+      <page
+            id="au.edu.swin.ict.road.designer.diagram.printing"
+            name="%prefpage.au.edu.swin.ict.road.designer.diagram.printing"
+            category="au.edu.swin.ict.road.designer.diagram.general"
+            class="au.edu.swin.ict.road.designer.smc.diagram.preferences.DiagramPrintingPreferencePage">
+      </page>
+      <page
+            id="au.edu.swin.ict.road.designer.diagram.rulersAndGrid"
+            name="%prefpage.au.edu.swin.ict.road.designer.diagram.rulersAndGrid"
+            category="au.edu.swin.ict.road.designer.diagram.general"
+            class="au.edu.swin.ict.road.designer.smc.diagram.preferences.DiagramRulersAndGridPreferencePage">
+      </page>
+   </extension>
+
+   <extension point="org.eclipse.ui.views.properties.tabbed.propertyContributor" id="prop-contrib">
+      <?gmfgen generated="true"?>
+      <propertyContributor
+            contributorId="au.edu.swin.ict.road.designer.diagram"
+            labelProvider="au.edu.swin.ict.road.designer.smc.diagram.sheet.SmcSheetLabelProvider">
+         <propertyCategory category="domain"/>
+         <propertyCategory category="visual"/>
+         <propertyCategory category="extra"/>
+      </propertyContributor>
+   </extension>
+
+   <extension point="org.eclipse.ui.views.properties.tabbed.propertyTabs" id="proptabs">
+      <?gmfgen generated="true"?>   
+      <propertyTabs contributorId="au.edu.swin.ict.road.designer.diagram">
+         <propertyTab
+             category="visual"
+             id="property.tab.AppearancePropertySection"
+             label="%tab.appearance"/>
+          <propertyTab
+             category="visual"
+             id="property.tab.DiagramPropertySection"
+             label="%tab.diagram"/>
+          <propertyTab
+             category="domain"
+             id="property.tab.domain"
+             label="%tab.domain"/>
+      </propertyTabs>
+   </extension>
+
+   <extension point="org.eclipse.ui.views.properties.tabbed.propertySections" id="propsections">
+      <?gmfgen generated="true"?>   
+      <propertySections contributorId="au.edu.swin.ict.road.designer.diagram">
+         <propertySection id="property.section.ConnectorAppearancePropertySection" 
+            filter="org.eclipse.gmf.runtime.diagram.ui.properties.filters.ConnectionEditPartPropertySectionFilter" 
+            class="org.eclipse.gmf.runtime.diagram.ui.properties.sections.appearance.ConnectionAppearancePropertySection" 
+            tab="property.tab.AppearancePropertySection">
+         </propertySection>
+         <propertySection id="property.section.ShapeColorAndFontPropertySection" 
+            filter="org.eclipse.gmf.runtime.diagram.ui.properties.filters.ShapeEditPartPropertySectionFilter" 
+            class="org.eclipse.gmf.runtime.diagram.ui.properties.sections.appearance.ShapeColorsAndFontsPropertySection" 
+            tab="property.tab.AppearancePropertySection">
+         </propertySection> 
+         <propertySection id="property.section.DiagramColorsAndFontsPropertySection" 
+            filter="org.eclipse.gmf.runtime.diagram.ui.properties.filters.DiagramEditPartPropertySectionFilter" 
+            class="org.eclipse.gmf.runtime.diagram.ui.properties.sections.appearance.DiagramColorsAndFontsPropertySection" 
+            tab="property.tab.AppearancePropertySection">
+         </propertySection>     
+         <propertySection id="property.section.RulerGridPropertySection" 
+            filter="org.eclipse.gmf.runtime.diagram.ui.properties.filters.DiagramEditPartPropertySectionFilter" 
+            class="org.eclipse.gmf.runtime.diagram.ui.properties.sections.grid.RulerGridPropertySection" 
+            tab="property.tab.DiagramPropertySection">
+         </propertySection>     
+         <propertySection
+            id="property.section.domain" 
+            tab="property.tab.domain"
+            class="au.edu.swin.ict.road.designer.smc.diagram.sheet.SmcPropertySection">
+            <input type="org.eclipse.gmf.runtime.notation.View"/>
+            <input type="org.eclipse.gef.EditPart"/>
+            <input type="au.edu.swin.ict.road.designer.smc.diagram.navigator.SmcAbstractNavigatorItem"/>
+         </propertySection>
+      </propertySections>
+   </extension>
+
+   <extension point="org.eclipse.gmf.runtime.diagram.core.viewProviders" id="view-provider">
+      <?gmfgen generated="true"?>
+      <viewProvider class="au.edu.swin.ict.road.designer.smc.diagram.providers.SmcViewProvider">
+         <Priority name="Lowest"/>
+         <context viewClass="org.eclipse.gmf.runtime.notation.Diagram" semanticHints="ROAD"/>
+         <context viewClass="org.eclipse.gmf.runtime.notation.Node" semanticHints="2001,2002,3001,3002,3003"/>
+         <context viewClass="org.eclipse.gmf.runtime.notation.Edge" semanticHints="4001,4002,4003,4006,4004,4005"/>
+      </viewProvider>
+   </extension>
+
+   <extension point="org.eclipse.gmf.runtime.diagram.ui.editpartProviders" id="ep-provider">
+      <?gmfgen generated="true"?>
+      <editpartProvider class="au.edu.swin.ict.road.designer.smc.diagram.providers.SmcEditPartProvider">
+         <Priority name="Lowest"/>
+         <object class="org.eclipse.gmf.runtime.notation.Diagram" id="generated-diagram">
+            <method name="getType()" value="ROAD"/>
+         </object>
+         <object class="org.eclipse.gmf.runtime.notation.Node" id="generated-nodes">
+            <method name="getType()" value="2001,2002,3001,3002,3003"/>
+         </object>
+         <object class="org.eclipse.gmf.runtime.notation.Edge" id="generated-links">
+            <method name="getType()" value="4001,4002,4003,4006,4004,4005"/>
+         </object>
+         <object class="org.eclipse.gmf.runtime.notation.Node" id="generated-labels">
+            <method name="getType()" value="5003,5004,5001,5005,5002"/>
+         </object>
+         <object class="org.eclipse.gmf.runtime.notation.Node" id="generated-compartments">
+            <method name="getType()" value="7001"/>
+         </object>
+         <context views="generated-diagram,generated-nodes,generated-links,generated-labels,generated-compartments"/>
+      </editpartProvider>
+   </extension>
+
+   <extension point="org.eclipse.gmf.runtime.emf.ui.modelingAssistantProviders" id="modelassist-provider">
+      <?gmfgen generated="true"?>
+      <modelingAssistantProvider class="au.edu.swin.ict.road.designer.smc.diagram.providers.SmcModelingAssistantProvider">
+         <Priority name="Lowest"/>
+         <object class="au.edu.swin.ict.road.designer.smc.diagram.edit.parts.SystemEditPart" id="System_1000"/>
+         <object class="au.edu.swin.ict.road.designer.smc.diagram.edit.parts.SMCEditPart" id="SMC_2001"/>
+         <object class="au.edu.swin.ict.road.designer.smc.diagram.edit.parts.PlayerEditPart" id="Player_2002"/>
+         <context elements="System_1000,SMC_2001,Player_2002"/>
+      </modelingAssistantProvider>
+   </extension>
+
+   <extension point="org.eclipse.gmf.runtime.common.ui.services.iconProviders" id="icon-provider">
+      <?gmfgen generated="true"?>
+      <IconProvider class="au.edu.swin.ict.road.designer.smc.diagram.providers.SmcIconProvider">
+         <Priority name="Low"/>
+      </IconProvider>
+   </extension>
+
+   <extension point="org.eclipse.gmf.runtime.common.ui.services.parserProviders" id="parser-provider">
+      <?gmfgen generated="true"?>
+      <ParserProvider class="au.edu.swin.ict.road.designer.smc.diagram.providers.SmcParserProvider">
+         <Priority name="Lowest"/>
+      </ParserProvider>
+   </extension>
+
+   <extension point="org.eclipse.gmf.runtime.emf.type.core.elementTypes" id="element-types">
+      <?gmfgen generated="true"?>
+      <metamodel nsURI="http://smc/1.0">
+         <metamodelType
+               id="au.edu.swin.ict.road.designer.diagram.System_1000"
+               name="%metatype.name.System_1000"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="System"
+               edithelper="au.edu.swin.ict.road.designer.smc.diagram.edit.helpers.SystemEditHelper">
+            <param name="semanticHint" value="1000"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://smc/1.0">
+         <metamodelType
+               id="au.edu.swin.ict.road.designer.diagram.SMC_2001"
+               name="%metatype.name.SMC_2001"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="SMC"
+               edithelper="au.edu.swin.ict.road.designer.smc.diagram.edit.helpers.SMCEditHelper">
+            <param name="semanticHint" value="2001"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://smc/1.0">
+         <metamodelType
+               id="au.edu.swin.ict.road.designer.diagram.Player_2002"
+               name="%metatype.name.Player_2002"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="Player"
+               edithelper="au.edu.swin.ict.road.designer.smc.diagram.edit.helpers.PlayerEditHelper">
+            <param name="semanticHint" value="2002"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://smc/1.0">
+         <metamodelType
+               id="au.edu.swin.ict.road.designer.diagram.Role_3001"
+               name="%metatype.name.Role_3001"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="Role"
+               edithelper="au.edu.swin.ict.road.designer.smc.diagram.edit.helpers.RoleEditHelper">
+            <param name="semanticHint" value="3001"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://smc/1.0">
+         <metamodelType
+               id="au.edu.swin.ict.road.designer.diagram.Contract_3002"
+               name="%metatype.name.Contract_3002"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="Contract"
+               edithelper="au.edu.swin.ict.road.designer.smc.diagram.edit.helpers.ContractEditHelper">
+            <param name="semanticHint" value="3002"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://smc/1.0">
+         <metamodelType
+               id="au.edu.swin.ict.road.designer.diagram.Fact_3003"
+               name="%metatype.name.Fact_3003"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="Fact"
+               edithelper="au.edu.swin.ict.road.designer.smc.diagram.edit.helpers.FactEditHelper">
+            <param name="semanticHint" value="3003"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://smc/1.0">
+         <specializationType
+               id="au.edu.swin.ict.road.designer.diagram.ContractRoleAID_4001"
+               name="%metatype.name.ContractRoleAID_4001"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="org.eclipse.gmf.runtime.emf.type.core.null"/>
+            <param name="semanticHint" value="4001"/>
+         </specializationType>
+      </metamodel>
+      <metamodel nsURI="http://smc/1.0">
+         <specializationType
+               id="au.edu.swin.ict.road.designer.diagram.ContractRoleBID_4002"
+               name="%metatype.name.ContractRoleBID_4002"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="org.eclipse.gmf.runtime.emf.type.core.null"/>
+            <param name="semanticHint" value="4002"/>
+         </specializationType>
+      </metamodel>
+      <metamodel nsURI="http://smc/1.0">
+         <metamodelType
+               id="au.edu.swin.ict.road.designer.diagram.FactLink_4003"
+               name="%metatype.name.FactLink_4003"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="FactLink"
+               edithelper="au.edu.swin.ict.road.designer.smc.diagram.edit.helpers.FactLinkEditHelper">
+            <param name="semanticHint" value="4003"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://smc/1.0">
+         <specializationType
+               id="au.edu.swin.ict.road.designer.diagram.FactLink_4006"
+               name="%metatype.name.FactLink_4006"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="au.edu.swin.ict.road.designer.diagram.FactLink_4003"/>
+            <param name="semanticHint" value="4006"/>
+         </specializationType>
+      </metamodel>
+      <metamodel nsURI="http://smc/1.0">
+         <metamodelType
+               id="au.edu.swin.ict.road.designer.diagram.PlayerBinding_4004"
+               name="%metatype.name.PlayerBinding_4004"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="PlayerBinding"
+               edithelper="au.edu.swin.ict.road.designer.smc.diagram.edit.helpers.PlayerBindingEditHelper">
+            <param name="semanticHint" value="4004"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://smc/1.0">
+         <metamodelType
+               id="au.edu.swin.ict.road.designer.diagram.ExternalFactLink_4005"
+               name="%metatype.name.ExternalFactLink_4005"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="ExternalFactLink"
+               edithelper="au.edu.swin.ict.road.designer.smc.diagram.edit.helpers.ExternalFactLinkEditHelper">
+            <param name="semanticHint" value="4005"/>
+         </metamodelType>
+      </metamodel>
+   </extension>
+
+   <extension point="org.eclipse.gmf.runtime.emf.type.core.elementTypeBindings" id="element-types-bindings">
+      <?gmfgen generated="true"?>
+      <clientContext id="au.edu.swin.ict.road.designer.diagram.TypeContext">
+         <enablement>
+            <test
+               property="org.eclipse.gmf.runtime.emf.core.editingDomain"
+               value="au.edu.swin.ict.road.designer.diagram.EditingDomain"/>
+         </enablement>
+      </clientContext> 
+      <binding context="au.edu.swin.ict.road.designer.diagram.TypeContext">
+         <elementType ref="au.edu.swin.ict.road.designer.diagram.System_1000"/>
+         <elementType ref="au.edu.swin.ict.road.designer.diagram.SMC_2001"/>
+         <elementType ref="au.edu.swin.ict.road.designer.diagram.Player_2002"/>
+         <elementType ref="au.edu.swin.ict.road.designer.diagram.Role_3001"/>
+         <elementType ref="au.edu.swin.ict.road.designer.diagram.Contract_3002"/>
+         <elementType ref="au.edu.swin.ict.road.designer.diagram.Fact_3003"/>
+         <elementType ref="au.edu.swin.ict.road.designer.diagram.ContractRoleAID_4001"/>
+         <elementType ref="au.edu.swin.ict.road.designer.diagram.ContractRoleBID_4002"/>
+         <elementType ref="au.edu.swin.ict.road.designer.diagram.FactLink_4003"/>
+         <elementType ref="au.edu.swin.ict.road.designer.diagram.FactLink_4006"/>
+         <elementType ref="au.edu.swin.ict.road.designer.diagram.PlayerBinding_4004"/>
+         <elementType ref="au.edu.swin.ict.road.designer.diagram.ExternalFactLink_4005"/>
+         <advice ref="org.eclipse.gmf.runtime.diagram.core.advice.notationDepdendents"/>
+      </binding>
+   </extension>
+	   <extension point="org.eclipse.core.expressions.propertyTesters" id="navigator-proptest.isURIEditorInput">
+      <?gmfgen generated="true"?>
+       <propertyTester
+           id="au.edu.swin.ict.road.designer.diagram.URIEditorInputPropertyTester"
+           type="org.eclipse.emf.common.ui.URIEditorInput"
+           namespace="au.edu.swin.ict.road.designer.diagram"
+           properties="isURIEditorInput"
+           class="au.edu.swin.ict.road.designer.smc.diagram.part.SmcUriEditorInputTester">
+       </propertyTester>
+   </extension>
+
+	   <extension point="org.eclipse.ui.navigator.viewer" id="navigator-viewbinding">
+      <?gmfgen generated="true"?>
+      <viewerContentBinding viewerId="org.eclipse.ui.navigator.ProjectExplorer">
+         <includes>
+            <contentExtension pattern="au.edu.swin.ict.road.designer.diagram.resourceContent"/>
+			<contentExtension pattern="au.edu.swin.ict.road.designer.diagram.domainResourceContent"/>
+            <contentExtension pattern="au.edu.swin.ict.road.designer.diagram.navigatorLinkHelper"/>
+         </includes>
+      </viewerContentBinding>
+      <viewerActionBinding viewerId="org.eclipse.ui.navigator.ProjectExplorer">
+         <includes>
+            <actionExtension pattern="au.edu.swin.ict.road.designer.diagram.navigatorActionProvider"/>
+         </includes>
+      </viewerActionBinding>
+   </extension>
+
+   <extension point="org.eclipse.ui.navigator.navigatorContent" id="navigator-content">
+      <?gmfgen generated="true"?>
+      <navigatorContent
+            id="au.edu.swin.ict.road.designer.diagram.resourceContent" 
+            name="%navigatorContentName" 
+            priority="normal" 
+            contentProvider="au.edu.swin.ict.road.designer.smc.diagram.navigator.SmcNavigatorContentProvider" 
+            labelProvider="au.edu.swin.ict.road.designer.smc.diagram.navigator.SmcNavigatorLabelProvider"
+            icon="icons/obj16/SmcDiagramFile.gif"
+            activeByDefault="true">
+         <triggerPoints>
+            <or>
+	           <and>
+    	          <instanceof value="org.eclipse.core.resources.IFile"/>
+        	      <test property="org.eclipse.core.resources.extension" value="road_diagram"/>
+               </and>
+               <instanceof value="au.edu.swin.ict.road.designer.smc.diagram.navigator.SmcAbstractNavigatorItem"/>
+            </or>
+         </triggerPoints>
+         <possibleChildren>
+            <or>
+         	   <instanceof value="au.edu.swin.ict.road.designer.smc.diagram.navigator.SmcAbstractNavigatorItem"/>
+            </or>
+         </possibleChildren>
+         <commonSorter 
+               id="au.edu.swin.ict.road.designer.diagram.navigatorSorter" 
+               class="au.edu.swin.ict.road.designer.smc.diagram.navigator.SmcNavigatorSorter">
+            <parentExpression>
+               <or>
+	              <and>
+    	             <instanceof value="org.eclipse.core.resources.IFile"/>
+        	         <test property="org.eclipse.core.resources.extension" value="road_diagram"/>
+                  </and>
+                  <instanceof value="au.edu.swin.ict.road.designer.smc.diagram.navigator.SmcAbstractNavigatorItem"/>
+               </or>
+            </parentExpression>
+         </commonSorter>
+      </navigatorContent>
+      <navigatorContent
+            id="au.edu.swin.ict.road.designer.diagram.domainResourceContent" 
+            name="%domainNavigatorContentName" 
+            priority="normal" 
+            contentProvider="au.edu.swin.ict.road.designer.smc.diagram.navigator.SmcDomainNavigatorContentProvider" 
+            labelProvider="au.edu.swin.ict.road.designer.smc.diagram.navigator.SmcDomainNavigatorLabelProvider"
+            icon="icons/obj16/SmcDiagramFile.gif"
+            activeByDefault="true">
+         <triggerPoints>
+            <or>
+	           <and>
+    	          <instanceof value="org.eclipse.core.resources.IFile"/>
+        	      <test property="org.eclipse.core.resources.extension" value="road"/>
+               </and>
+               <instanceof value="au.edu.swin.ict.road.designer.smc.diagram.navigator.SmcDomainNavigatorItem"/>
+            </or>
+         </triggerPoints>
+         <possibleChildren>
+            <instanceof value="au.edu.swin.ict.road.designer.smc.diagram.navigator.SmcDomainNavigatorItem"/>
+         </possibleChildren>
+      </navigatorContent>
+      <actionProvider
+            id="au.edu.swin.ict.road.designer.diagram.navigatorActionProvider"
+            class="au.edu.swin.ict.road.designer.smc.diagram.navigator.SmcNavigatorActionProvider">
+         <enablement>
+            <or>
+               <instanceof value="au.edu.swin.ict.road.designer.smc.diagram.navigator.SmcAbstractNavigatorItem"/>
+            </or>
+         </enablement>
+      </actionProvider>
+   </extension>
+   
+	   <extension point="org.eclipse.ui.navigator.linkHelper" id="navigator-linkhelper">
+      <?gmfgen generated="true"?>
+      <linkHelper
+            id="au.edu.swin.ict.road.designer.diagram.navigatorLinkHelper"
+            class="au.edu.swin.ict.road.designer.smc.diagram.navigator.SmcNavigatorLinkHelper">
+         <editorInputEnablement>
+            <and>
+               <instanceof value="org.eclipse.emf.common.ui.URIEditorInput"/>
+               <test property="au.edu.swin.ict.road.designer.diagram.isURIEditorInput"/>
+            </and>
+         </editorInputEnablement>
+         <selectionEnablement>
+            <instanceof value="au.edu.swin.ict.road.designer.smc.diagram.navigator.SmcAbstractNavigatorItem"/>
+         </selectionEnablement>
+      </linkHelper>
+   </extension>
+   <extension point="org.eclipse.ui.commands" id="update-cmd">
+      <?gmfgen generated="true"?>
+      <command
+         categoryId="org.eclipse.ui.category.edit"
+         defaultHandler="au.edu.swin.ict.road.designer.smc.diagram.part.SmcDiagramUpdateCommand"
+         description="%update.diagram.description"
+         id="au.edu.swin.ict.road.designer.smc.diagram.updateDiagram"
+         name="%update.diagram.name"/>
+   </extension>
+   
+   <extension point="org.eclipse.ui.bindings" id="update-cmd-binding">
+      <?gmfgen generated="true"?>
+      <key 
+         commandId="au.edu.swin.ict.road.designer.smc.diagram.updateDiagram"
+         contextId="au.edu.swin.ict.road.designer.smc.diagram.ui.diagramContext"
+         schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
+         sequence="F5"/>
+   </extension>
+
+   <extension point="org.eclipse.ui.menus" id="context-menus">
+      <?gmfgen generated="true"?>
+      <!-- menuContribution locationURI="menu:org.eclipse.ui.main.menu?after=">
+      </menuContribution>
+      <menuContribution locationURI="toolbar:org.eclipse.ui.main.toolbar?after=">
+      </menuContribution -->
+      <menuContribution locationURI="popup:org.eclipse.gmf.runtime.diagram.ui.DiagramEditorContextMenu">
+         <command commandId="au.edu.swin.ict.road.designer.diagram.LoadResourceAction">
+            <visibleWhen>
+               <and>
+                  <with variable="activePartId"><equals value="au.edu.swin.ict.road.designer.smc.diagram.part.SmcDiagramEditorID"/></with>
+                  <with variable="selection"><iterate ifEmpty="false"> 
+                     <instanceof value="au.edu.swin.ict.road.designer.smc.diagram.edit.parts.SystemEditPart"/>
+                  </iterate></with>
+               </and>
+            </visibleWhen>
+         </command>
+      </menuContribution>
+   </extension>
+
+   <extension point="org.eclipse.ui.commands" id="menu-commands">
+      <?gmfgen generated="true"?>
+      <category id="au.edu.swin.ict.road.designer.smc.diagram.part.SmcDiagramEditorID" name="%cmdcategory.name" description="%cmdcategory.desc"/>
+      <command id="au.edu.swin.ict.road.designer.diagram.LoadResourceAction"
+         name="Load Resource"
+         categoryId="au.edu.swin.ict.road.designer.smc.diagram.part.SmcDiagramEditorID"
+         defaultHandler="au.edu.swin.ict.road.designer.smc.diagram.part.LoadResourceAction"/>
+   </extension>
+
+   <extension point="org.eclipse.ui.handlers" id="menu-handlers">
+      <?gmfgen generated="true"?>
+   </extension>
+
+   <!-- optionally, specify keybindings -->
+</plugin>

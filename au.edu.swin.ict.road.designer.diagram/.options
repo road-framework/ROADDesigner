@@ -1,0 +1,7 @@
+# Tracing options for the au.edu.swin.ict.road.designer.diagram plug-in
+
+# Common issues
+au.edu.swin.ict.road.designer.diagram/debug=false
+
+# Visual IDs
+au.edu.swin.ict.road.designer.diagram/debug/visualID=false

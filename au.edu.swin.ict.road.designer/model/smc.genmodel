@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/au.edu.swin.ict.road.designer/src"
+    modelPluginID="au.edu.swin.ict.road.designer" modelName="Smc" importerID="org.eclipse.emf.importer.ecore"
+    complianceLevel="5.0" copyrightFields="false">
+  <foreignModel>smc.ecore</foreignModel>
+  <genPackages prefix="Smc" basePackage="au.edu.swin.ict.road.designer" disposableProviderFactory="true"
+      ecorePackage="smc.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="smc.ecore#//MessageType">
+      <genEnumLiterals ecoreEnumLiteral="smc.ecore#//MessageType/push"/>
+      <genEnumLiterals ecoreEnumLiteral="smc.ecore#//MessageType/pull"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="smc.ecore#//DeonticType">
+      <genEnumLiterals ecoreEnumLiteral="smc.ecore#//DeonticType/permission"/>
+      <genEnumLiterals ecoreEnumLiteral="smc.ecore#//DeonticType/obligation"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="smc.ecore#//DirectionType">
+      <genEnumLiterals ecoreEnumLiteral="smc.ecore#//DirectionType/AtoB"/>
+      <genEnumLiterals ecoreEnumLiteral="smc.ecore#//DirectionType/BtoA"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="smc.ecore#//Mode">
+      <genEnumLiterals ecoreEnumLiteral="smc.ecore#//Mode/Active"/>
+      <genEnumLiterals ecoreEnumLiteral="smc.ecore#//Mode/Passive"/>
+    </genEnums>
+    <genClasses ecoreClass="smc.ecore#//SMC">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference smc.ecore#//SMC/Role"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference smc.ecore#//SMC/Contract"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference smc.ecore#//SMC/ProcessDefinition"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference smc.ecore#//SMC/BehaviorTerm"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference smc.ecore#//SMC/PlayerBinding"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference smc.ecore#//SMC/MessageAnalyzer"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute smc.ecore#//SMC/rulesDir"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute smc.ecore#//SMC/routingRuleFile"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute smc.ecore#//SMC/compositeRuleFile"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute smc.ecore#//SMC/OrganizerBinding"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute smc.ecore#//SMC/Description"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference smc.ecore#//SMC/Fact"/>
+    </genClasses>
+    <genClasses ecoreClass="smc.ecore#//Role">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute smc.ecore#//Role/id"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute smc.ecore#//Role/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute smc.ecore#//Role/Description"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference smc.ecore#//Role/Task"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference smc.ecore#//Role/ExternalFactLink"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute smc.ecore#//Role/ManagementResponsibilities"/>
+    </genClasses>
+    <genClasses ecoreClass="smc.ecore#//Contract">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute smc.ecore#//Contract/id"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute smc.ecore#//Contract/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute smc.ecore#//Contract/type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute smc.ecore#//Contract/ruleFile"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference smc.ecore#//Contract/RoleAID"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference smc.ecore#//Contract/RoleBID"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute smc.ecore#//Contract/Description"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute smc.ecore#//Contract/Abstract"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute smc.ecore#//Contract/State"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference smc.ecore#//Contract/Term"/>
+    </genClasses>
+    <genClasses ecoreClass="smc.ecore#//ProcessDefinition">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute smc.ecore#//ProcessDefinition/id"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute smc.ecore#//ProcessDefinition/descr"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute smc.ecore#//ProcessDefinition/CoS"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute smc.ecore#//ProcessDefinition/CoT"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference smc.ecore#//ProcessDefinition/Constraint"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference smc.ecore#//ProcessDefinition/BehaviorTerm"/>
+    </genClasses>
+    <genClasses ecoreClass="smc.ecore#//BehaviorTerm">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute smc.ecore#//BehaviorTerm/id"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute smc.ecore#//BehaviorTerm/extension"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute smc.ecore#//BehaviorTerm/extends"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute smc.ecore#//BehaviorTerm/isAbstract"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference smc.ecore#//BehaviorTerm/TaskRef"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference smc.ecore#//BehaviorTerm/Constraint"/>
+    </genClasses>
+    <genClasses ecoreClass="smc.ecore#//PlayerBinding">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute smc.ecore#//PlayerBinding/id"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute smc.ecore#//PlayerBinding/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute smc.ecore#//PlayerBinding/Endpoint"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute smc.ecore#//PlayerBinding/Implementation"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute smc.ecore#//PlayerBinding/Description"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference smc.ecore#//PlayerBinding/Role"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference smc.ecore#//PlayerBinding/player"/>
+    </genClasses>
+    <genClasses ecoreClass="smc.ecore#//MessageAnalyzer">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute smc.ecore#//MessageAnalyzer/id"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute smc.ecore#//MessageAnalyzer/class"/>
+    </genClasses>
+    <genClasses ecoreClass="smc.ecore#//ExternalFactLink">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute smc.ecore#//ExternalFactLink/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute smc.ecore#//ExternalFactLink/OnChange"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference smc.ecore#//ExternalFactLink/AcquisitionRegime"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference smc.ecore#//ExternalFactLink/ProvisionRegime"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference smc.ecore#//ExternalFactLink/Fact"/>
+    </genClasses>
+    <genClasses ecoreClass="smc.ecore#//AcquisitionRegime">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute smc.ecore#//AcquisitionRegime/SyncInterval"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute smc.ecore#//AcquisitionRegime/mode"/>
+    </genClasses>
+    <genClasses ecoreClass="smc.ecore#//ProvisionRegime">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute smc.ecore#//ProvisionRegime/SyncInterval"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute smc.ecore#//ProvisionRegime/mode"/>
+    </genClasses>
+    <genClasses ecoreClass="smc.ecore#//Task">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute smc.ecore#//Task/id"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute smc.ecore#//Task/msgAnalyser"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference smc.ecore#//Task/In"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference smc.ecore#//Task/Out"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute smc.ecore#//Task/isMsgDriven"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference smc.ecore#//Task/ResultMsg"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference smc.ecore#//Task/SrcMsg"/>
+    </genClasses>
+    <genClasses ecoreClass="smc.ecore#//InMsg">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute smc.ecore#//InMsg/isResponse"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference smc.ecore#//InMsg/Operation"/>
+    </genClasses>
+    <genClasses ecoreClass="smc.ecore#//Parameter">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute smc.ecore#//Parameter/Type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute smc.ecore#//Parameter/Name"/>
+    </genClasses>
+    <genClasses ecoreClass="smc.ecore#//ResultMsg">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute smc.ecore#//ResultMsg/transformation"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute smc.ecore#//ResultMsg/contractId"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute smc.ecore#//ResultMsg/termId"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute smc.ecore#//ResultMsg/isResponse"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute smc.ecore#//ResultMsg/factId"/>
+    </genClasses>
+    <genClasses ecoreClass="smc.ecore#//OutMsg">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute smc.ecore#//OutMsg/deliveryType"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute smc.ecore#//OutMsg/Transformation"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute smc.ecore#//OutMsg/isResponse"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference smc.ecore#//OutMsg/Operation"/>
+    </genClasses>
+    <genClasses ecoreClass="smc.ecore#//Term">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute smc.ecore#//Term/id"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute smc.ecore#//Term/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute smc.ecore#//Term/messageType"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute smc.ecore#//Term/deonticType"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute smc.ecore#//Term/Direction"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute smc.ecore#//Term/Description"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference smc.ecore#//Term/Operation"/>
+    </genClasses>
+    <genClasses ecoreClass="smc.ecore#//Operation">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute smc.ecore#//Operation/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute smc.ecore#//Operation/Return"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference smc.ecore#//Operation/Parameter"/>
+    </genClasses>
+    <genClasses ecoreClass="smc.ecore#//Constraint">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute smc.ecore#//Constraint/Id"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute smc.ecore#//Constraint/Expression"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute smc.ecore#//Constraint/enabled"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute smc.ecore#//Constraint/language"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute smc.ecore#//Constraint/soft"/>
+    </genClasses>
+    <genClasses ecoreClass="smc.ecore#//TaskRef">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute smc.ecore#//TaskRef/preEP"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute smc.ecore#//TaskRef/postEP"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute smc.ecore#//TaskRef/performanceVal"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference smc.ecore#//TaskRef/Task"/>
+    </genClasses>
+    <genClasses ecoreClass="smc.ecore#//Fact">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute smc.ecore#//Fact/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute smc.ecore#//Fact/source"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute smc.ecore#//Fact/Identifier"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute smc.ecore#//Fact/Attribute"/>
+    </genClasses>
+    <genClasses ecoreClass="smc.ecore#//System">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference smc.ecore#//System/smc"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference smc.ecore#//System/player"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute smc.ecore#//System/name"/>
+    </genClasses>
+    <genClasses ecoreClass="smc.ecore#//Player">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute smc.ecore#//Player/name"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference smc.ecore#//Player/binding"/>
+    </genClasses>
+    <genClasses ecoreClass="smc.ecore#//FactLink">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute smc.ecore#//FactLink/MonitorFact"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute smc.ecore#//FactLink/ProvideContext"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference smc.ecore#//FactLink/Fact"/>
+    </genClasses>
+    <genClasses ecoreClass="smc.ecore#//FactAccessor">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference smc.ecore#//FactAccessor/FactLink"/>
+    </genClasses>
+    <genClasses ecoreClass="smc.ecore#//SrcMsg">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute smc.ecore#//SrcMsg/contractId"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute smc.ecore#//SrcMsg/termId"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute smc.ecore#//SrcMsg/isResponse"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute smc.ecore#//SrcMsg/factId"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>
