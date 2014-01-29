@@ -1,371 +1,695 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
-  <SMC name="SMC" dataDir="src/main/rules">
-<Roles>
-<Role id="REG" name="Registry">
-<Tasks>
-<Task id="GetServiceCapabilityAnon" isMsgDriven="true">
-<Out deliveryType="pull">
-<Operation name="GetService">
-<Parameters>
-<Parameter>
-<Type>String</Type>
-<Name>Service_ID</Name>
-</Parameter>
-</Parameters>
-<Return>GetServiceReturn</Return>
-</Operation>
-</Out>
-<In isResponse="true">
-<Operation name="GetService">
-<Parameters>
-<Parameter>
-<Type>String</Type>
-<Name>Service_ID</Name>
-</Parameter>
-</Parameters>
-<Return>GetServiceReturn</Return>
-</Operation>
-</In>
-<SrcMsgs transformation="GetServiceCapabilityAnon.xslt">
-<SrcMsg contractId="SC1-REG" termId="GetServiceCapabilityAnon" isResponse="false"/>
-</SrcMsgs>
-<ResultMsgs>
-<ResultMsg contractId="SC1-REG" termId="GetServiceCapabilityAnon" isResponse="true" transformation="GetServiceCapabilityAnonRes.xslt"/>
-</ResultMsgs>
-</Task>
-<Task id="GetServiceCapability" isMsgDriven="true">
-<Out deliveryType="push">
-<Operation name="GetService">
-<Parameters>
-<Parameter>
-<Type>String</Type>
-<Name>Service_ID</Name>
-</Parameter>
-</Parameters>
-<Return>GetServiceReturn</Return>
-</Operation>
-</Out>
-<In isResponse="true">
-<Operation name="GetService">
-<Parameters>
-<Parameter>
-<Type>String</Type>
-<Name>Service_ID</Name>
-</Parameter>
-</Parameters>
-<Return>GetServiceReturn</Return>
-</Operation>
-</In>
-<SrcMsgs transformation="GetServiceCapability.xslt">
-<SrcMsg contractId="SC2-REG" termId="GetServiceCapability" isResponse="false"/>
-</SrcMsgs>
-<ResultMsgs>
-<ResultMsg contractId="SC2-REG" termId="GetServiceCapability" isResponse="true" transformation="GetServiceCapabilityRes.xslt"/>
-</ResultMsgs>
-</Task>
-<Task id="GetServiceTechnicalInterface" isMsgDriven="true">
-<Out deliveryType="push">
-<Operation name="GetService">
-<Parameters>
-<Parameter>
-<Type>String</Type>
-<Name>Service_ID</Name>
-</Parameter>
-</Parameters>
-<Return>GetServiceReturn</Return>
-</Operation>
-</Out>
-<In isResponse="true">
-<Operation name="GetService">
-<Parameters>
-<Parameter>
-<Type>String</Type>
-<Name>Service_ID</Name>
-</Parameter>
-</Parameters>
-<Return>GetServiceReturn</Return>
-</Operation>
-</In>
-<SrcMsgs transformation="GetServiceTechnicalInterface.xslt">
-<SrcMsg contractId="SC2-REG" termId="GetServiceTechnicalInterface" isResponse="false"/>
-</SrcMsgs>
-<ResultMsgs>
-<ResultMsg contractId="SC2-REG" termId="GetServiceTechnicalInterface" isResponse="true" transformation="GetServiceTechnicalInterfaceRes.xslt"/>
-</ResultMsgs>
-</Task>
-<Task id="GetService" isMsgDriven="true">
-<Out deliveryType="push">
-<Operation name="GetService">
-<Parameters>
-<Parameter>
-<Type>String</Type>
-<Name>Service_ID</Name>
-</Parameter>
-</Parameters>
-<Return>GetServiceReturn</Return>
-</Operation>
-</Out>
-<In isResponse="true">
-<Operation name="GetService">
-<Parameters>
-<Parameter>
-<Type>String</Type>
-<Name>Service_ID</Name>
-</Parameter>
-</Parameters>
-<Return>GetServiceReturn</Return>
-</Operation>
-</In>
-<SrcMsgs transformation="GetService.xslt">
-<SrcMsg contractId="SP1-REG" termId="GetService" isResponse="false"/>
-</SrcMsgs>
-<ResultMsgs>
-<ResultMsg contractId="SP1-REG" termId="GetService" isResponse="true" transformation="GetServiceRes.xslt"/>
-</ResultMsgs>
-</Task>
-<Task id="CreateProvider" isMsgDriven="true">
-<Out deliveryType="push">
-<Operation name="CreateProvider">
-<Parameters>
-<Parameter>
-<Type>CreateProviderValue</Type>
-<Name>Provider_VALUE</Name>
-</Parameter>
-</Parameters>
-<Return>String</Return>
-</Operation>
-</Out>
-<In isResponse="true">
-<Operation name="CreateProvider">
-<Parameters>
-<Parameter>
-<Type>CreateProviderValue</Type>
-<Name>Provider_VALUE</Name>
-</Parameter>
-</Parameters>
-<Return>String</Return>
-</Operation>
-</In>
-<SrcMsgs transformation="CreateProvider.xslt">
-<SrcMsg contractId="SP1-REG" termId="CreateProvider" isResponse="false"/>
-</SrcMsgs>
-<ResultMsgs>
-<ResultMsg contractId="SP1-REG" termId="CreateProvider" isResponse="true" transformation="CreateProviderRes.xslt"/>
-</ResultMsgs>
-</Task>
-<Task id="CreateService" isMsgDriven="true">
-<Out deliveryType="push">
-<Operation name="CreateService">
-<Parameters>
-<Parameter>
-<Type>CreateServiceValue</Type>
-<Name>Service_VALUE</Name>
-</Parameter>
-</Parameters>
-<Return>String</Return>
-</Operation>
-</Out>
-<In isResponse="true">
-<Operation name="CreateService">
-<Parameters>
-<Parameter>
-<Type>CreateServiceValue</Type>
-<Name>Service_VALUE</Name>
-</Parameter>
-</Parameters>
-<Return>String</Return>
-</Operation>
-</In>
-<SrcMsgs transformation="CreateService.xslt">
-<SrcMsg contractId="SP1-REG" termId="CreateService" isResponse="false"/>
-</SrcMsgs>
-<ResultMsgs>
-<ResultMsg contractId="SP1-REG" termId="CreateService" isResponse="true" transformation="CreateServiceRes.xslt"/>
-</ResultMsgs>
-</Task>
-<Task id="CreateTechnicalInterface" isMsgDriven="true">
-<Out deliveryType="push">
-<Operation name="CreateTechnicalInterface">
-<Parameters>
-<Parameter>
-<Type>CreateTechnicalInterfaceValue</Type>
-<Name>TechnicalInterface_VALUE</Name>
-</Parameter>
-</Parameters>
-<Return>String</Return>
-</Operation>
-</Out>
-<In isResponse="true">
-<Operation name="CreateTechnicalInterface">
-<Parameters>
-<Parameter>
-<Type>CreateTechnicalInterfaceValue</Type>
-<Name>TechnicalInterface_VALUE</Name>
-</Parameter>
-</Parameters>
-<Return>String</Return>
-</Operation>
-</In>
-<SrcMsgs transformation="CreateTechnicalInterface.xslt">
-<SrcMsg contractId="SP1-REG" termId="CreateTechnicalInterface" isResponse="false"/>
-</SrcMsgs>
-<ResultMsgs>
-<ResultMsg contractId="SP1-REG" termId="CreateTechnicalInterface" isResponse="true" transformation="CreateTechnicalInterfaceRes.xslt"/>
-</ResultMsgs>
-</Task>
-<Task id="SettechnicalInterfaces" isMsgDriven="true">
-<Out deliveryType="push">
-<Operation name="SettechnicalInterfaces">
-<Parameters>
-<Parameter>
-<Type>String</Type>
-<Name>Service_ROOTID</Name>
-</Parameter>
-<Parameter>
-<Type>String</Type>
-<Name>TechnicalInterface_ID</Name>
-</Parameter>
-</Parameters>
-<Return>String</Return>
-</Operation>
-</Out>
-<In isResponse="true">
-<Operation name="SettechnicalInterfaces">
-<Parameters>
-<Parameter>
-<Type>String</Type>
-<Name>Service_ROOTID</Name>
-</Parameter>
-<Parameter>
-<Type>String</Type>
-<Name>TechnicalInterface_ID</Name>
-</Parameter>
-</Parameters>
-<Return>String</Return>
-</Operation>
-</In>
-<SrcMsgs transformation="SettechnicalInterfaces.xslt">
-<SrcMsg contractId="SP1-REG" termId="SettechnicalInterface" isResponse="false"/>
-</SrcMsgs>
-<ResultMsgs>
-<ResultMsg contractId="SP1-REG" termId="SettechnicalInterface" isResponse="true" transformation="SettechnicalInterfacesRes.xslt"/>
-</ResultMsgs>
-</Task>
-<Task id="CreateCapability" isMsgDriven="true">
-<Out deliveryType="push">
-<Operation name="CreateCapability">
-<Parameters>
-<Parameter>
-<Type>CreateCapabilityValue</Type>
-<Name>Capability_VALUE</Name>
-</Parameter>
-</Parameters>
-<Return>String</Return>
-</Operation>
-</Out>
-<In isResponse="true">
-<Operation name="CreateCapability">
-<Parameters>
-<Parameter>
-<Type>CreateCapabilityValue</Type>
-<Name>Capability_VALUE</Name>
-</Parameter>
-</Parameters>
-<Return>String</Return>
-</Operation>
-</In>
-<SrcMsgs transformation="CreateCapability.xslt">
-<SrcMsg contractId="SP1-REG" termId="CreateCapability" isResponse="false"/>
-</SrcMsgs>
-<ResultMsgs>
-<ResultMsg contractId="SP1-REG" termId="CreateCapability" isResponse="true" transformation="CreateCapabilityRes.xslt"/>
-</ResultMsgs>
-</Task>
-<Task id="Setcapabilities" isMsgDriven="true">
-<Out deliveryType="push">
-<Operation name="">
-<Parameters>
-<Parameter>
-<Type>String</Type>
-<Name>Service_ROOTID</Name>
-</Parameter>
-<Parameter>
-<Type>String</Type>
-<Name>Capability_ID</Name>
-</Parameter>
-</Parameters>
-<Return>String</Return>
-</Operation>
-</Out>
-<In isResponse="true">
-<Operation name="">
-<Parameters>
-<Parameter>
-<Type>String</Type>
-<Name>Service_ROOTID</Name>
-</Parameter>
-<Parameter>
-<Type>String</Type>
-<Name>Capability_ID</Name>
-</Parameter>
-</Parameters>
-<Return>String</Return>
-</Operation>
-</In>
-<SrcMsgs transformation="Setcapabilities.xslt">
-<SrcMsg contractId="SP1-REG" termId="Setcapabilities" isResponse="false"/>
-</SrcMsgs>
-<ResultMsgs>
-<ResultMsg contractId="SP1-REG" termId="Setcapabilities" isResponse="true" transformation="SetcapabilitiesRes.xslt"/>
-</ResultMsgs>
-</Task>
-</Tasks>
-</Role>
-<Role id="SC1" name="Consumer1">
-<Tasks>
-<Task id="Task1" isMsgDriven="true">
-<Out deliveryType="push" isResponse="true"/>
-<ResultMsgs>
-<ResultMsg contractId="SC1-REG" termId="GetServiceCapabilityAnon" isResponse="true" transformation="transformation0.xslt"/>
-</ResultMsgs>
-</Task>
-</Tasks>
-</Role>
-<Role id="SC2" name="Consumer2"/>
-<Role id="SP1" name="ServiceProvider"/>
-<Role id="MON" name="MonitoringClientApp"/>
-<Role id="RUP" name="RegisteredUserProvider">
-<Tasks>
-<Task id="Task1" isMsgDriven="true">
-<Out deliveryType="push"/>
-<In isResponse="true"/>
-<SrcMsgs transformation="Task12.xslt">
-<SrcMsg contractId="" termId="" isResponse="false"/>
-<SrcMsg contractId="" termId="" isResponse="false"/>
-</SrcMsgs>
-<ResultMsgs>
-<ResultMsg contractId="" termId="" isResponse="" transformation="transformation0.xslt"/>
-<ResultMsg contractId="" termId="" isResponse="" transformation="Task12.xslt"/>
-</ResultMsgs>
-</Task>
-</Tasks>
-</Role>
-<Role id="USAGE_METER" name="USAGE_METER"/>
-<Role id="PAYMENT_MGR" name="PAYMENT_MGR"/>
-</Roles>
-<Contracts>
-<Contract id="" name="SC1-REG" type="permissive" ruleFile="src/main/rules/SC1-REG.drl">
-<RoleAID/>
-</Contract>
-<Contract id="" name="SC2-REG" type="permissive" ruleFile="src/main/rules/SC2-REG.drl">
-<RoleAID/>
-</Contract>
-<Contract id="" name="SP1-REG" type="permissive" ruleFile="src/main/rules/SP1-REG.drl">
-<RoleAID/>
-</Contract>
-</Contracts>
-<Description>SMC of ROAD4RaaS</Description>
+  <SMC xmlns="http://www.swin.edu.au/ict/road/smc" name="SMC" dataDir="src/main/rules">
+  <Facts>
+    <fact:Fact xmlns:fact="http://www.swin.edu.au/ict/road/fact" name="ServiceStat" source="External">
+      <fact:Identifier>InvocationID</fact:Identifier>
+      <fact:Attributes>
+        <fact:Attribute>Count</fact:Attribute>
+      </fact:Attributes>
+    </fact:Fact>
+    <fact:Fact xmlns:fact="http://www.swin.edu.au/ict/road/fact" name="RegistrationStatus" source="External">
+      <fact:Identifier>UserID</fact:Identifier>
+      <fact:Attributes>
+        <fact:Attribute>Block</fact:Attribute>
+      </fact:Attributes>
+    </fact:Fact>
+    <fact:Fact xmlns:fact="http://www.swin.edu.au/ict/road/fact" name="UsageStat" source="External">
+      <fact:Identifier>UsageStatID</fact:Identifier>
+      <fact:Attributes>
+        <fact:Attribute>Count</fact:Attribute>
+      </fact:Attributes>
+    </fact:Fact>
+    <fact:Fact xmlns:fact="http://www.swin.edu.au/ict/road/fact" name="MonthlyPay" source="External">
+      <fact:Identifier>MonthlyPayID</fact:Identifier>
+      <fact:Attributes>
+        <fact:Attribute>Count</fact:Attribute>
+      </fact:Attributes>
+    </fact:Fact>
+  </Facts>
+  <Roles>
+    <role:Role xmlns:role="http://www.swin.edu.au/ict/road/role" id="REG" name="Registry">
+      <serendip:Tasks xmlns:serendip="http://www.ict.swin.edu.au/serendip/types">
+        <serendip:Task id="GetServiceCapabilityAnon" isMsgDriven="true">
+          <serendip:Out deliveryType="pull">
+            <term:Operation xmlns:term="http://www.swin.edu.au/ict/road/term" name="GetService">
+              <term:Parameters>
+                <term:Parameter>
+                  <term:Type>String</term:Type>
+                  <term:Name>Service_ID</term:Name>
+                </term:Parameter>
+              </term:Parameters>
+              <term:Return>GetServiceReturn</term:Return>
+            </term:Operation>
+          </serendip:Out>
+          <serendip:In isResponse="true">
+            <term:Operation xmlns:term="http://www.swin.edu.au/ict/road/term" name="GetService">
+              <term:Parameters>
+                <term:Parameter>
+                  <term:Type>String</term:Type>
+                  <term:Name>Service_ID</term:Name>
+                </term:Parameter>
+              </term:Parameters>
+              <term:Return>GetServiceReturn</term:Return>
+            </term:Operation>
+          </serendip:In>
+          <serendip:SrcMsgs transformation="GetServiceCapabilityAnon.xslt">
+            <serendip:SrcMsg contractId="SC1-REG" termId="GetServiceCapabilityAnon" isResponse="false"/>
+          </serendip:SrcMsgs>
+          <serendip:ResultMsgs>
+            <serendip:ResultMsg contractId="SC1-REG" termId="GetServiceCapabilityAnon" isResponse="true" transformation="GetServiceCapabilityAnonRes.xslt"/>
+          </serendip:ResultMsgs>
+        </serendip:Task>
+        <serendip:Task id="GetServiceCapability" isMsgDriven="true">
+          <serendip:Out deliveryType="push">
+            <term:Operation xmlns:term="http://www.swin.edu.au/ict/road/term" name="GetService">
+              <term:Parameters>
+                <term:Parameter>
+                  <term:Type>String</term:Type>
+                  <term:Name>Service_ID</term:Name>
+                </term:Parameter>
+              </term:Parameters>
+              <term:Return>GetServiceReturn</term:Return>
+            </term:Operation>
+          </serendip:Out>
+          <serendip:In isResponse="true">
+            <term:Operation xmlns:term="http://www.swin.edu.au/ict/road/term" name="GetService">
+              <term:Parameters>
+                <term:Parameter>
+                  <term:Type>String</term:Type>
+                  <term:Name>Service_ID</term:Name>
+                </term:Parameter>
+              </term:Parameters>
+              <term:Return>GetServiceReturn</term:Return>
+            </term:Operation>
+          </serendip:In>
+          <serendip:SrcMsgs transformation="GetServiceCapability.xslt">
+            <serendip:SrcMsg contractId="SC2-REG" termId="GetServiceCapability" isResponse="false"/>
+          </serendip:SrcMsgs>
+          <serendip:ResultMsgs>
+            <serendip:ResultMsg contractId="SC2-REG" termId="GetServiceCapability" isResponse="true" transformation="GetServiceCapabilityRes.xslt"/>
+          </serendip:ResultMsgs>
+        </serendip:Task>
+        <serendip:Task id="GetServiceTechnicalInterface" isMsgDriven="true">
+          <serendip:Out deliveryType="push">
+            <term:Operation xmlns:term="http://www.swin.edu.au/ict/road/term" name="GetService">
+              <term:Parameters>
+                <term:Parameter>
+                  <term:Type>String</term:Type>
+                  <term:Name>Service_ID</term:Name>
+                </term:Parameter>
+              </term:Parameters>
+              <term:Return>GetServiceReturn</term:Return>
+            </term:Operation>
+          </serendip:Out>
+          <serendip:In isResponse="true">
+            <term:Operation xmlns:term="http://www.swin.edu.au/ict/road/term" name="GetService">
+              <term:Parameters>
+                <term:Parameter>
+                  <term:Type>String</term:Type>
+                  <term:Name>Service_ID</term:Name>
+                </term:Parameter>
+              </term:Parameters>
+              <term:Return>GetServiceReturn</term:Return>
+            </term:Operation>
+          </serendip:In>
+          <serendip:SrcMsgs transformation="GetServiceTechnicalInterface.xslt">
+            <serendip:SrcMsg contractId="SC2-REG" termId="GetServiceTechnicalInterface" isResponse="false"/>
+          </serendip:SrcMsgs>
+          <serendip:ResultMsgs>
+            <serendip:ResultMsg contractId="SC2-REG" termId="GetServiceTechnicalInterface" isResponse="true" transformation="GetServiceTechnicalInterfaceRes.xslt"/>
+          </serendip:ResultMsgs>
+        </serendip:Task>
+        <serendip:Task id="GetService" isMsgDriven="true">
+          <serendip:Out deliveryType="push">
+            <term:Operation xmlns:term="http://www.swin.edu.au/ict/road/term" name="GetService">
+              <term:Parameters>
+                <term:Parameter>
+                  <term:Type>String</term:Type>
+                  <term:Name>Service_ID</term:Name>
+                </term:Parameter>
+              </term:Parameters>
+              <term:Return>GetServiceReturn</term:Return>
+            </term:Operation>
+          </serendip:Out>
+          <serendip:In isResponse="true">
+            <term:Operation xmlns:term="http://www.swin.edu.au/ict/road/term" name="GetService">
+              <term:Parameters>
+                <term:Parameter>
+                  <term:Type>String</term:Type>
+                  <term:Name>Service_ID</term:Name>
+                </term:Parameter>
+              </term:Parameters>
+              <term:Return>GetServiceReturn</term:Return>
+            </term:Operation>
+          </serendip:In>
+          <serendip:SrcMsgs transformation="GetService.xslt">
+            <serendip:SrcMsg contractId="SP1-REG" termId="GetService" isResponse="false"/>
+          </serendip:SrcMsgs>
+          <serendip:ResultMsgs>
+            <serendip:ResultMsg contractId="SP1-REG" termId="GetService" isResponse="true" transformation="GetServiceRes.xslt"/>
+          </serendip:ResultMsgs>
+        </serendip:Task>
+        <serendip:Task id="CreateProvider" isMsgDriven="true">
+          <serendip:Out deliveryType="push">
+            <term:Operation xmlns:term="http://www.swin.edu.au/ict/road/term" name="CreateProvider">
+              <term:Parameters>
+                <term:Parameter>
+                  <term:Type>CreateProviderValue</term:Type>
+                  <term:Name>Provider_VALUE</term:Name>
+                </term:Parameter>
+              </term:Parameters>
+              <term:Return>String</term:Return>
+            </term:Operation>
+          </serendip:Out>
+          <serendip:In isResponse="true">
+            <term:Operation xmlns:term="http://www.swin.edu.au/ict/road/term" name="CreateProvider">
+              <term:Parameters>
+                <term:Parameter>
+                  <term:Type>CreateProviderValue</term:Type>
+                  <term:Name>Provider_VALUE</term:Name>
+                </term:Parameter>
+              </term:Parameters>
+              <term:Return>String</term:Return>
+            </term:Operation>
+          </serendip:In>
+          <serendip:SrcMsgs transformation="CreateProvider.xslt">
+            <serendip:SrcMsg contractId="SP1-REG" termId="CreateProvider" isResponse="false"/>
+          </serendip:SrcMsgs>
+          <serendip:ResultMsgs>
+            <serendip:ResultMsg contractId="SP1-REG" termId="CreateProvider" isResponse="true" transformation="CreateProviderRes.xslt"/>
+          </serendip:ResultMsgs>
+        </serendip:Task>
+        <serendip:Task id="CreateService" isMsgDriven="true">
+          <serendip:Out deliveryType="push">
+            <term:Operation xmlns:term="http://www.swin.edu.au/ict/road/term" name="CreateService">
+              <term:Parameters>
+                <term:Parameter>
+                  <term:Type>CreateServiceValue</term:Type>
+                  <term:Name>Service_VALUE</term:Name>
+                </term:Parameter>
+              </term:Parameters>
+              <term:Return>String</term:Return>
+            </term:Operation>
+          </serendip:Out>
+          <serendip:In isResponse="true">
+            <term:Operation xmlns:term="http://www.swin.edu.au/ict/road/term" name="CreateService">
+              <term:Parameters>
+                <term:Parameter>
+                  <term:Type>CreateServiceValue</term:Type>
+                  <term:Name>Service_VALUE</term:Name>
+                </term:Parameter>
+              </term:Parameters>
+              <term:Return>String</term:Return>
+            </term:Operation>
+          </serendip:In>
+          <serendip:SrcMsgs transformation="CreateService.xslt">
+            <serendip:SrcMsg contractId="SP1-REG" termId="CreateService" isResponse="false"/>
+          </serendip:SrcMsgs>
+          <serendip:ResultMsgs>
+            <serendip:ResultMsg contractId="SP1-REG" termId="CreateService" isResponse="true" transformation="CreateServiceRes.xslt"/>
+          </serendip:ResultMsgs>
+        </serendip:Task>
+        <serendip:Task id="CreateTechnicalInterface" isMsgDriven="true">
+          <serendip:Out deliveryType="push">
+            <term:Operation xmlns:term="http://www.swin.edu.au/ict/road/term" name="CreateTechnicalInterface">
+              <term:Parameters>
+                <term:Parameter>
+                  <term:Type>CreateTechnicalInterfaceValue</term:Type>
+                  <term:Name>TechnicalInterface_VALUE</term:Name>
+                </term:Parameter>
+              </term:Parameters>
+              <term:Return>String</term:Return>
+            </term:Operation>
+          </serendip:Out>
+          <serendip:In isResponse="true">
+            <term:Operation xmlns:term="http://www.swin.edu.au/ict/road/term" name="CreateTechnicalInterface">
+              <term:Parameters>
+                <term:Parameter>
+                  <term:Type>CreateTechnicalInterfaceValue</term:Type>
+                  <term:Name>TechnicalInterface_VALUE</term:Name>
+                </term:Parameter>
+              </term:Parameters>
+              <term:Return>String</term:Return>
+            </term:Operation>
+          </serendip:In>
+          <serendip:SrcMsgs transformation="CreateTechnicalInterface.xslt">
+            <serendip:SrcMsg contractId="SP1-REG" termId="CreateTechnicalInterface" isResponse="false"/>
+          </serendip:SrcMsgs>
+          <serendip:ResultMsgs>
+            <serendip:ResultMsg contractId="SP1-REG" termId="CreateTechnicalInterface" isResponse="true" transformation="CreateTechnicalInterfaceRes.xslt"/>
+          </serendip:ResultMsgs>
+        </serendip:Task>
+        <serendip:Task id="SettechnicalInterfaces" isMsgDriven="true">
+          <serendip:Out deliveryType="push">
+            <term:Operation xmlns:term="http://www.swin.edu.au/ict/road/term" name="SettechnicalInterfaces">
+              <term:Parameters>
+                <term:Parameter>
+                  <term:Type>String</term:Type>
+                  <term:Name>Service_ROOTID</term:Name>
+                </term:Parameter>
+                <term:Parameter>
+                  <term:Type>String</term:Type>
+                  <term:Name>TechnicalInterface_ID</term:Name>
+                </term:Parameter>
+              </term:Parameters>
+              <term:Return>String</term:Return>
+            </term:Operation>
+          </serendip:Out>
+          <serendip:In isResponse="true">
+            <term:Operation xmlns:term="http://www.swin.edu.au/ict/road/term" name="SettechnicalInterfaces">
+              <term:Parameters>
+                <term:Parameter>
+                  <term:Type>String</term:Type>
+                  <term:Name>Service_ROOTID</term:Name>
+                </term:Parameter>
+                <term:Parameter>
+                  <term:Type>String</term:Type>
+                  <term:Name>TechnicalInterface_ID</term:Name>
+                </term:Parameter>
+              </term:Parameters>
+              <term:Return>String</term:Return>
+            </term:Operation>
+          </serendip:In>
+          <serendip:SrcMsgs transformation="SettechnicalInterfaces.xslt">
+            <serendip:SrcMsg contractId="SP1-REG" termId="SettechnicalInterface" isResponse="false"/>
+          </serendip:SrcMsgs>
+          <serendip:ResultMsgs>
+            <serendip:ResultMsg contractId="SP1-REG" termId="SettechnicalInterface" isResponse="true" transformation="SettechnicalInterfacesRes.xslt"/>
+          </serendip:ResultMsgs>
+        </serendip:Task>
+        <serendip:Task id="CreateCapability" isMsgDriven="true">
+          <serendip:Out deliveryType="push">
+            <term:Operation xmlns:term="http://www.swin.edu.au/ict/road/term" name="CreateCapability">
+              <term:Parameters>
+                <term:Parameter>
+                  <term:Type>CreateCapabilityValue</term:Type>
+                  <term:Name>Capability_VALUE</term:Name>
+                </term:Parameter>
+              </term:Parameters>
+              <term:Return>String</term:Return>
+            </term:Operation>
+          </serendip:Out>
+          <serendip:In isResponse="true">
+            <term:Operation xmlns:term="http://www.swin.edu.au/ict/road/term" name="CreateCapability">
+              <term:Parameters>
+                <term:Parameter>
+                  <term:Type>CreateCapabilityValue</term:Type>
+                  <term:Name>Capability_VALUE</term:Name>
+                </term:Parameter>
+              </term:Parameters>
+              <term:Return>String</term:Return>
+            </term:Operation>
+          </serendip:In>
+          <serendip:SrcMsgs transformation="CreateCapability.xslt">
+            <serendip:SrcMsg contractId="SP1-REG" termId="CreateCapability" isResponse="false"/>
+          </serendip:SrcMsgs>
+          <serendip:ResultMsgs>
+            <serendip:ResultMsg contractId="SP1-REG" termId="CreateCapability" isResponse="true" transformation="CreateCapabilityRes.xslt"/>
+          </serendip:ResultMsgs>
+        </serendip:Task>
+        <serendip:Task id="Setcapabilities" isMsgDriven="true">
+          <serendip:Out deliveryType="push">
+            <term:Operation xmlns:term="http://www.swin.edu.au/ict/road/term" name="">
+              <term:Parameters>
+                <term:Parameter>
+                  <term:Type>String</term:Type>
+                  <term:Name>Service_ROOTID</term:Name>
+                </term:Parameter>
+                <term:Parameter>
+                  <term:Type>String</term:Type>
+                  <term:Name>Capability_ID</term:Name>
+                </term:Parameter>
+              </term:Parameters>
+              <term:Return>String</term:Return>
+            </term:Operation>
+          </serendip:Out>
+          <serendip:In isResponse="true">
+            <term:Operation xmlns:term="http://www.swin.edu.au/ict/road/term" name="">
+              <term:Parameters>
+                <term:Parameter>
+                  <term:Type>String</term:Type>
+                  <term:Name>Service_ROOTID</term:Name>
+                </term:Parameter>
+                <term:Parameter>
+                  <term:Type>String</term:Type>
+                  <term:Name>Capability_ID</term:Name>
+                </term:Parameter>
+              </term:Parameters>
+              <term:Return>String</term:Return>
+            </term:Operation>
+          </serendip:In>
+          <serendip:SrcMsgs transformation="Setcapabilities.xslt">
+            <serendip:SrcMsg contractId="SP1-REG" termId="Setcapabilities" isResponse="false"/>
+          </serendip:SrcMsgs>
+          <serendip:ResultMsgs>
+            <serendip:ResultMsg contractId="SP1-REG" termId="Setcapabilities" isResponse="true" transformation="SetcapabilitiesRes.xslt"/>
+          </serendip:ResultMsgs>
+        </serendip:Task>
+      </serendip:Tasks>
+    </role:Role>
+    <role:Role xmlns:role="http://www.swin.edu.au/ict/road/role" id="SC1" name="Consumer1">
+      <serendip:Tasks xmlns:serendip="http://www.ict.swin.edu.au/serendip/types">
+        <serendip:Task id="Task1" isMsgDriven="true">
+          <serendip:Out deliveryType="push" isResponse="true"/>
+          <serendip:ResultMsgs>
+            <serendip:ResultMsg contractId="SC1-REG" termId="GetServiceCapabilityAnon" isResponse="true" transformation="transformation0.xslt"/>
+          </serendip:ResultMsgs>
+        </serendip:Task>
+      </serendip:Tasks>
+    </role:Role>
+    <role:Role xmlns:role="http://www.swin.edu.au/ict/road/role" id="SC2" name="Consumer2"/>
+    <role:Role xmlns:role="http://www.swin.edu.au/ict/road/role" id="SP1" name="ServiceProvider"/>
+    <role:Role xmlns:role="http://www.swin.edu.au/ict/road/role" id="MON" name="MonitoringClientApp">
+      <role:LinkedFacts>
+        <Fact name="InvocationID" monitor="true"/>
+      </role:LinkedFacts>
+    </role:Role>
+    <role:Role xmlns:role="http://www.swin.edu.au/ict/road/role" id="RUP" name="RegisteredUserProvider">
+      <role:LinkedFacts>
+        <Fact name="UserID">
+          <ProvisionRegime mode="Active" SyncIntervale="2"/>
+        </Fact>
+        <Fact name="UsageStatID">
+          <ProvisionRegime mode="Active" SyncIntervale="2"/>
+        </Fact>
+        <Fact name="MonthlyPayID">
+          <AcquisitionRegime mode="Active" SyncIntervale="2"/>
+        </Fact>
+      </role:LinkedFacts>
+      <serendip:Tasks xmlns:serendip="http://www.ict.swin.edu.au/serendip/types">
+        <serendip:Task id="Task1" isMsgDriven="true">
+          <serendip:Out deliveryType="push"/>
+          <serendip:In isResponse="true"/>
+          <serendip:SrcMsgs transformation="Task12.xslt">
+            <serendip:SrcMsg contractId="" termId="" isResponse="false"/>
+            <serendip:SrcMsg contractId="" termId="" isResponse="false"/>
+          </serendip:SrcMsgs>
+          <serendip:ResultMsgs>
+            <serendip:ResultMsg contractId="" termId="" isResponse="" transformation="transformation0.xslt"/>
+            <serendip:ResultMsg contractId="" termId="" isResponse="" transformation="Task12.xslt"/>
+          </serendip:ResultMsgs>
+        </serendip:Task>
+      </serendip:Tasks>
+    </role:Role>
+    <role:Role xmlns:role="http://www.swin.edu.au/ict/road/role" id="USAGE_METER" name="USAGE_METER">
+      <role:LinkedFacts>
+        <Fact name="UsageStatID"/>
+      </role:LinkedFacts>
+    </role:Role>
+    <role:Role xmlns:role="http://www.swin.edu.au/ict/road/role" id="PAYMENT_MGR" name="PAYMENT_MGR">
+      <role:LinkedFacts>
+        <Fact name="MonthlyPayID"/>
+      </role:LinkedFacts>
+    </role:Role>
+  </Roles>
+  <Contracts>
+    <contract:Contract xmlns:contract="http://www.swin.edu.au/ict/road/contract" id="" name="SC1-REG" type="permissive" ruleFile="src/main/rules/SC1-REG.drl">
+      <contract:LinkedFacts>
+        <Fact name="InvocationID"/>
+      </contract:LinkedFacts>
+      <contract:State>Incipient</contract:State>
+      <contract:Terms>
+        <term:Term xmlns:term="http://www.swin.edu.au/ict/road/term" id="" name="GetServiceCapabilityAnon" messageType="push" deonticType="permission">
+          <term:Operation name="GetServiceCapabilityAnon">
+            <term:Parameters>
+              <term:Parameter>
+                <term:Type>String</term:Type>
+                <term:Name>Service_ID</term:Name>
+              </term:Parameter>
+            </term:Parameters>
+            <term:Return>GetCapabilityReturn</term:Return>
+          </term:Operation>
+          <term:Direction>AtoB</term:Direction>
+          <term:Description>Allow consumers to retrieve service capability</term:Description>
+        </term:Term>
+      </contract:Terms>
+      <contract:RoleAID>SC1</contract:RoleAID>
+      <contract:RoleBID>REG</contract:RoleBID>
+      <contract:Description>This is the contract btwn the Consumer1 and Registry</contract:Description>
+    </contract:Contract>
+    <contract:Contract xmlns:contract="http://www.swin.edu.au/ict/road/contract" id="" name="SC2-REG" type="permissive" ruleFile="src/main/rules/SC2-REG.drl">
+      <contract:LinkedFacts>
+        <Fact name="InvocationID"/>
+        <Fact name="UserID" monitor="true"/>
+        <Fact name="UsageStatID"/>
+      </contract:LinkedFacts>
+      <contract:State>Incipient</contract:State>
+      <contract:Terms>
+        <term:Term xmlns:term="http://www.swin.edu.au/ict/road/term" id="" name="GetServiceCapability" messageType="push" deonticType="permission">
+          <term:Operation name="GetServiceCapability">
+            <term:Parameters>
+              <term:Parameter>
+                <term:Type>String</term:Type>
+                <term:Name>User_ID</term:Name>
+              </term:Parameter>
+              <term:Parameter>
+                <term:Type>String</term:Type>
+                <term:Name>Service_ID</term:Name>
+              </term:Parameter>
+            </term:Parameters>
+            <term:Return>GetCapabilityReturn</term:Return>
+          </term:Operation>
+          <term:Direction>AtoB</term:Direction>
+          <term:Description>Allow consumers to retrieve service capability</term:Description>
+        </term:Term>
+        <term:Term xmlns:term="http://www.swin.edu.au/ict/road/term" id="" name="GetServiceTechnicalInterface" messageType="push" deonticType="permission">
+          <term:Operation name="GetServiceTechnicalInterface">
+            <term:Parameters>
+              <term:Parameter>
+                <term:Type>String</term:Type>
+                <term:Name>User_ID</term:Name>
+              </term:Parameter>
+              <term:Parameter>
+                <term:Type>String</term:Type>
+                <term:Name>Service_ID</term:Name>
+              </term:Parameter>
+            </term:Parameters>
+            <term:Return>GetTechnicalInterfaceReturn</term:Return>
+          </term:Operation>
+          <term:Direction>AtoB</term:Direction>
+          <term:Description>Get technical interface description for the corresponding service</term:Description>
+        </term:Term>
+        <term:Term xmlns:term="http://www.swin.edu.au/ict/road/term" id="" name="GetService" messageType="push" deonticType="permission">
+          <term:Operation name="GetService">
+            <term:Parameters>
+              <term:Parameter>
+                <term:Type>String</term:Type>
+                <term:Name>User_ID</term:Name>
+              </term:Parameter>
+              <term:Parameter>
+                <term:Type>String</term:Type>
+                <term:Name>Service_ID</term:Name>
+              </term:Parameter>
+            </term:Parameters>
+            <term:Return>GetServiceReturn</term:Return>
+          </term:Operation>
+          <term:Direction>AtoB</term:Direction>
+          <term:Description>Retrieving service users</term:Description>
+        </term:Term>
+      </contract:Terms>
+      <contract:RoleAID>SC2</contract:RoleAID>
+      <contract:RoleBID>REG</contract:RoleBID>
+      <contract:Description>This is the contract btwn the Consumer2 and Registry</contract:Description>
+    </contract:Contract>
+    <contract:Contract xmlns:contract="http://www.swin.edu.au/ict/road/contract" id="" name="SP1-REG" type="permissive" ruleFile="src/main/rules/SP1-REG.drl">
+      <contract:LinkedFacts>
+        <Fact name="InvocationID"/>
+        <Fact name="UserID" monitor="true"/>
+        <Fact name="MonthlyPayID" monitor="true"/>
+      </contract:LinkedFacts>
+      <contract:State>Incipient</contract:State>
+      <contract:Terms>
+        <term:Term xmlns:term="http://www.swin.edu.au/ict/road/term" id="" name="GetService" messageType="push" deonticType="permission">
+          <term:Operation name="GetService">
+            <term:Parameters>
+              <term:Parameter>
+                <term:Type>String</term:Type>
+                <term:Name>User_ID</term:Name>
+              </term:Parameter>
+              <term:Parameter>
+                <term:Type>String</term:Type>
+                <term:Name>Service_ID</term:Name>
+              </term:Parameter>
+            </term:Parameters>
+            <term:Return>GetServiceReturn</term:Return>
+          </term:Operation>
+          <term:Direction>AtoB</term:Direction>
+          <term:Description>Get full USDL description for the service</term:Description>
+        </term:Term>
+        <term:Term xmlns:term="http://www.swin.edu.au/ict/road/term" id="" name="CreateProvider" messageType="push" deonticType="permission">
+          <term:Operation name="CreateProvider">
+            <term:Parameters>
+              <term:Parameter>
+                <term:Type>String</term:Type>
+                <term:Name>User_ID</term:Name>
+              </term:Parameter>
+              <term:Parameter>
+                <term:Type>String</term:Type>
+                <term:Name>guid</term:Name>
+              </term:Parameter>
+            </term:Parameters>
+            <term:Return>String</term:Return>
+          </term:Operation>
+          <term:Direction>AtoB</term:Direction>
+          <term:Description>Register a service provider </term:Description>
+        </term:Term>
+        <term:Term xmlns:term="http://www.swin.edu.au/ict/road/term" id="" name="CreateService" messageType="push" deonticType="permission">
+          <term:Operation name="CreateService">
+            <term:Parameters>
+              <term:Parameter>
+                <term:Type>String</term:Type>
+                <term:Name>User_ID</term:Name>
+              </term:Parameter>
+              <term:Parameter>
+                <term:Type>String</term:Type>
+                <term:Name>guid</term:Name>
+              </term:Parameter>
+              <term:Parameter>
+                <term:Type>String</term:Type>
+                <term:Name>name</term:Name>
+              </term:Parameter>
+              <term:Parameter>
+                <term:Type>String</term:Type>
+                <term:Name>provider</term:Name>
+              </term:Parameter>
+              <term:Parameter>
+                <term:Type>String</term:Type>
+                <term:Name>publicationTime</term:Name>
+              </term:Parameter>
+              <term:Parameter>
+                <term:Type>String</term:Type>
+                <term:Name>version</term:Name>
+              </term:Parameter>
+              <term:Parameter>
+                <term:Type>String</term:Type>
+                <term:Name>nature</term:Name>
+              </term:Parameter>
+            </term:Parameters>
+            <term:Return>String</term:Return>
+          </term:Operation>
+          <term:Direction>AtoB</term:Direction>
+          <term:Description>Create full USDL service description</term:Description>
+        </term:Term>
+        <term:Term xmlns:term="http://www.swin.edu.au/ict/road/term" id="" name="CreateTechnicalInterface" messageType="push" deonticType="permission">
+          <term:Operation name="CreateTechnicalInterface">
+            <term:Parameters>
+              <term:Parameter>
+                <term:Type>String</term:Type>
+                <term:Name>User_ID</term:Name>
+              </term:Parameter>
+              <term:Parameter>
+                <term:Type>String</term:Type>
+                <term:Name>name</term:Name>
+              </term:Parameter>
+              <term:Parameter>
+                <term:Type>String</term:Type>
+                <term:Name>type</term:Name>
+              </term:Parameter>
+            </term:Parameters>
+            <term:Return>String</term:Return>
+          </term:Operation>
+          <term:Direction>AtoB</term:Direction>
+          <term:Description>Create a technical interface description for a service</term:Description>
+        </term:Term>
+        <term:Term xmlns:term="http://www.swin.edu.au/ict/road/term" id="" name="SettechnicalInterface" messageType="push" deonticType="permission">
+          <term:Operation name="SettechnicalInterface">
+            <term:Parameters>
+              <term:Parameter>
+                <term:Type>String</term:Type>
+                <term:Name>User_ID</term:Name>
+              </term:Parameter>
+              <term:Parameter>
+                <term:Type>String</term:Type>
+                <term:Name>Service_ROOTID</term:Name>
+              </term:Parameter>
+              <term:Parameter>
+                <term:Type>String</term:Type>
+                <term:Name>TechnicalInterface_ID</term:Name>
+              </term:Parameter>
+            </term:Parameters>
+            <term:Return>String</term:Return>
+          </term:Operation>
+          <term:Direction>AtoB</term:Direction>
+          <term:Description>Associate a technical interface description with a service</term:Description>
+        </term:Term>
+        <term:Term xmlns:term="http://www.swin.edu.au/ict/road/term" id="" name="CreateCapability" messageType="push" deonticType="permission">
+          <term:Operation name="CreateCapability">
+            <term:Parameters>
+              <term:Parameter>
+                <term:Type>String</term:Type>
+                <term:Name>User_ID</term:Name>
+              </term:Parameter>
+              <term:Parameter>
+                <term:Type>String</term:Type>
+                <term:Name>action_name</term:Name>
+              </term:Parameter>
+              <term:Parameter>
+                <term:Type>String</term:Type>
+                <term:Name>name</term:Name>
+              </term:Parameter>
+            </term:Parameters>
+            <term:Return>String</term:Return>
+          </term:Operation>
+          <term:Direction>AtoB</term:Direction>
+          <term:Description>Register a service capability</term:Description>
+        </term:Term>
+        <term:Term xmlns:term="http://www.swin.edu.au/ict/road/term" id="" name="Setcapabilities" messageType="push" deonticType="permission">
+          <term:Operation name="Setcapabilities">
+            <term:Parameters>
+              <term:Parameter>
+                <term:Type>String</term:Type>
+                <term:Name>User_ID</term:Name>
+              </term:Parameter>
+              <term:Parameter>
+                <term:Type>String</term:Type>
+                <term:Name>Service_ROOTID</term:Name>
+              </term:Parameter>
+              <term:Parameter>
+                <term:Type>String</term:Type>
+                <term:Name>Capability_ID</term:Name>
+              </term:Parameter>
+            </term:Parameters>
+            <term:Return>String</term:Return>
+          </term:Operation>
+          <term:Direction>AtoB</term:Direction>
+          <term:Description>Associate service capabilities with a service</term:Description>
+        </term:Term>
+      </contract:Terms>
+      <contract:RoleAID>SP1</contract:RoleAID>
+      <contract:RoleBID>REG</contract:RoleBID>
+      <contract:Description>This is the contract btwn the ServiceProvider and Registry</contract:Description>
+    </contract:Contract>
+  </Contracts>
+  <PlayerBindings>
+    <player:PlayerBinding xmlns:player="http://www.swin.edu.au/ict/road/player" name="//@player.0">
+      <player:Endpoint>http://ec2-50-16-55-169.compute-1.amazonaws.com/raas.usdl.server/services/servicerepository?wsdl=ServiceRepository.wsdl</player:Endpoint>
+      <player:Roles>
+        <player:RoleID>REG</player:RoleID>
+      </player:Roles>
+      <player:Description>Description</player:Description>
+    </player:PlayerBinding>
+    <player:PlayerBinding xmlns:player="http://www.swin.edu.au/ict/road/player" name="//@player.1">
+      <player:Roles>
+        <player:RoleID>SC1</player:RoleID>
+      </player:Roles>
+    </player:PlayerBinding>
+    <player:PlayerBinding xmlns:player="http://www.swin.edu.au/ict/road/player" name="//@player.2">
+      <player:Roles>
+        <player:RoleID>SC2</player:RoleID>
+      </player:Roles>
+    </player:PlayerBinding>
+    <player:PlayerBinding xmlns:player="http://www.swin.edu.au/ict/road/player" name="//@player.3">
+      <player:Roles>
+        <player:RoleID>SP1</player:RoleID>
+      </player:Roles>
+    </player:PlayerBinding>
+    <player:PlayerBinding xmlns:player="http://www.swin.edu.au/ict/road/player" name="//@player.4">
+      <player:Roles>
+        <player:RoleID>PAYMENT_MGR</player:RoleID>
+      </player:Roles>
+    </player:PlayerBinding>
+  </PlayerBindings>
+  <Description>SMC of ROAD4RaaS</Description>
 </SMC>
   
   
