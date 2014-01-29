@@ -1,0 +1,374 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+  <SMC name="SMC" dataDir="src/main/rules">
+<Roles>
+<Role id="REG" name="Registry">
+<Tasks>
+<Task id="GetServiceCapabilityAnon" isMsgDriven="true">
+<Out deliveryType="pull">
+<Operation name="GetService">
+<Parameters>
+<Parameter>
+<Type>String</Type>
+<Name>Service_ID</Name>
+</Parameter>
+</Parameters>
+<Return>GetServiceReturn</Return>
+</Operation>
+</Out>
+<In isResponse="true">
+<Operation name="GetService">
+<Parameters>
+<Parameter>
+<Type>String</Type>
+<Name>Service_ID</Name>
+</Parameter>
+</Parameters>
+<Return>GetServiceReturn</Return>
+</Operation>
+</In>
+<SrcMsgs transformation="GetServiceCapabilityAnon.xslt">
+<SrcMsg contractId="SC1-REG" termId="GetServiceCapabilityAnon" isResponse="false"/>
+</SrcMsgs>
+<ResultMsgs>
+<ResultMsg contractId="SC1-REG" termId="GetServiceCapabilityAnon" isResponse="true" transformation="GetServiceCapabilityAnonRes.xslt"/>
+</ResultMsgs>
+</Task>
+<Task id="GetServiceCapability" isMsgDriven="true">
+<Out deliveryType="push">
+<Operation name="GetService">
+<Parameters>
+<Parameter>
+<Type>String</Type>
+<Name>Service_ID</Name>
+</Parameter>
+</Parameters>
+<Return>GetServiceReturn</Return>
+</Operation>
+</Out>
+<In isResponse="true">
+<Operation name="GetService">
+<Parameters>
+<Parameter>
+<Type>String</Type>
+<Name>Service_ID</Name>
+</Parameter>
+</Parameters>
+<Return>GetServiceReturn</Return>
+</Operation>
+</In>
+<SrcMsgs transformation="GetServiceCapability.xslt">
+<SrcMsg contractId="SC2-REG" termId="GetServiceCapability" isResponse="false"/>
+</SrcMsgs>
+<ResultMsgs>
+<ResultMsg contractId="SC2-REG" termId="GetServiceCapability" isResponse="true" transformation="GetServiceCapabilityRes.xslt"/>
+</ResultMsgs>
+</Task>
+<Task id="GetServiceTechnicalInterface" isMsgDriven="true">
+<Out deliveryType="push">
+<Operation name="GetService">
+<Parameters>
+<Parameter>
+<Type>String</Type>
+<Name>Service_ID</Name>
+</Parameter>
+</Parameters>
+<Return>GetServiceReturn</Return>
+</Operation>
+</Out>
+<In isResponse="true">
+<Operation name="GetService">
+<Parameters>
+<Parameter>
+<Type>String</Type>
+<Name>Service_ID</Name>
+</Parameter>
+</Parameters>
+<Return>GetServiceReturn</Return>
+</Operation>
+</In>
+<SrcMsgs transformation="GetServiceTechnicalInterface.xslt">
+<SrcMsg contractId="SC2-REG" termId="GetServiceTechnicalInterface" isResponse="false"/>
+</SrcMsgs>
+<ResultMsgs>
+<ResultMsg contractId="SC2-REG" termId="GetServiceTechnicalInterface" isResponse="true" transformation="GetServiceTechnicalInterfaceRes.xslt"/>
+</ResultMsgs>
+</Task>
+<Task id="GetService" isMsgDriven="true">
+<Out deliveryType="push">
+<Operation name="GetService">
+<Parameters>
+<Parameter>
+<Type>String</Type>
+<Name>Service_ID</Name>
+</Parameter>
+</Parameters>
+<Return>GetServiceReturn</Return>
+</Operation>
+</Out>
+<In isResponse="true">
+<Operation name="GetService">
+<Parameters>
+<Parameter>
+<Type>String</Type>
+<Name>Service_ID</Name>
+</Parameter>
+</Parameters>
+<Return>GetServiceReturn</Return>
+</Operation>
+</In>
+<SrcMsgs transformation="GetService.xslt">
+<SrcMsg contractId="SP1-REG" termId="GetService" isResponse="false"/>
+</SrcMsgs>
+<ResultMsgs>
+<ResultMsg contractId="SP1-REG" termId="GetService" isResponse="true" transformation="GetServiceRes.xslt"/>
+</ResultMsgs>
+</Task>
+<Task id="CreateProvider" isMsgDriven="true">
+<Out deliveryType="push">
+<Operation name="CreateProvider">
+<Parameters>
+<Parameter>
+<Type>CreateProviderValue</Type>
+<Name>Provider_VALUE</Name>
+</Parameter>
+</Parameters>
+<Return>String</Return>
+</Operation>
+</Out>
+<In isResponse="true">
+<Operation name="CreateProvider">
+<Parameters>
+<Parameter>
+<Type>CreateProviderValue</Type>
+<Name>Provider_VALUE</Name>
+</Parameter>
+</Parameters>
+<Return>String</Return>
+</Operation>
+</In>
+<SrcMsgs transformation="CreateProvider.xslt">
+<SrcMsg contractId="SP1-REG" termId="CreateProvider" isResponse="false"/>
+</SrcMsgs>
+<ResultMsgs>
+<ResultMsg contractId="SP1-REG" termId="CreateProvider" isResponse="true" transformation="CreateProviderRes.xslt"/>
+</ResultMsgs>
+</Task>
+<Task id="CreateService" isMsgDriven="true">
+<Out deliveryType="push">
+<Operation name="CreateService">
+<Parameters>
+<Parameter>
+<Type>CreateServiceValue</Type>
+<Name>Service_VALUE</Name>
+</Parameter>
+</Parameters>
+<Return>String</Return>
+</Operation>
+</Out>
+<In isResponse="true">
+<Operation name="CreateService">
+<Parameters>
+<Parameter>
+<Type>CreateServiceValue</Type>
+<Name>Service_VALUE</Name>
+</Parameter>
+</Parameters>
+<Return>String</Return>
+</Operation>
+</In>
+<SrcMsgs transformation="CreateService.xslt">
+<SrcMsg contractId="SP1-REG" termId="CreateService" isResponse="false"/>
+</SrcMsgs>
+<ResultMsgs>
+<ResultMsg contractId="SP1-REG" termId="CreateService" isResponse="true" transformation="CreateServiceRes.xslt"/>
+</ResultMsgs>
+</Task>
+<Task id="CreateTechnicalInterface" isMsgDriven="true">
+<Out deliveryType="push">
+<Operation name="CreateTechnicalInterface">
+<Parameters>
+<Parameter>
+<Type>CreateTechnicalInterfaceValue</Type>
+<Name>TechnicalInterface_VALUE</Name>
+</Parameter>
+</Parameters>
+<Return>String</Return>
+</Operation>
+</Out>
+<In isResponse="true">
+<Operation name="CreateTechnicalInterface">
+<Parameters>
+<Parameter>
+<Type>CreateTechnicalInterfaceValue</Type>
+<Name>TechnicalInterface_VALUE</Name>
+</Parameter>
+</Parameters>
+<Return>String</Return>
+</Operation>
+</In>
+<SrcMsgs transformation="CreateTechnicalInterface.xslt">
+<SrcMsg contractId="SP1-REG" termId="CreateTechnicalInterface" isResponse="false"/>
+</SrcMsgs>
+<ResultMsgs>
+<ResultMsg contractId="SP1-REG" termId="CreateTechnicalInterface" isResponse="true" transformation="CreateTechnicalInterfaceRes.xslt"/>
+</ResultMsgs>
+</Task>
+<Task id="SettechnicalInterfaces" isMsgDriven="true">
+<Out deliveryType="push">
+<Operation name="SettechnicalInterfaces">
+<Parameters>
+<Parameter>
+<Type>String</Type>
+<Name>Service_ROOTID</Name>
+</Parameter>
+<Parameter>
+<Type>String</Type>
+<Name>TechnicalInterface_ID</Name>
+</Parameter>
+</Parameters>
+<Return>String</Return>
+</Operation>
+</Out>
+<In isResponse="true">
+<Operation name="SettechnicalInterfaces">
+<Parameters>
+<Parameter>
+<Type>String</Type>
+<Name>Service_ROOTID</Name>
+</Parameter>
+<Parameter>
+<Type>String</Type>
+<Name>TechnicalInterface_ID</Name>
+</Parameter>
+</Parameters>
+<Return>String</Return>
+</Operation>
+</In>
+<SrcMsgs transformation="SettechnicalInterfaces.xslt">
+<SrcMsg contractId="SP1-REG" termId="SettechnicalInterface" isResponse="false"/>
+</SrcMsgs>
+<ResultMsgs>
+<ResultMsg contractId="SP1-REG" termId="SettechnicalInterface" isResponse="true" transformation="SettechnicalInterfacesRes.xslt"/>
+</ResultMsgs>
+</Task>
+<Task id="CreateCapability" isMsgDriven="true">
+<Out deliveryType="push">
+<Operation name="CreateCapability">
+<Parameters>
+<Parameter>
+<Type>CreateCapabilityValue</Type>
+<Name>Capability_VALUE</Name>
+</Parameter>
+</Parameters>
+<Return>String</Return>
+</Operation>
+</Out>
+<In isResponse="true">
+<Operation name="CreateCapability">
+<Parameters>
+<Parameter>
+<Type>CreateCapabilityValue</Type>
+<Name>Capability_VALUE</Name>
+</Parameter>
+</Parameters>
+<Return>String</Return>
+</Operation>
+</In>
+<SrcMsgs transformation="CreateCapability.xslt">
+<SrcMsg contractId="SP1-REG" termId="CreateCapability" isResponse="false"/>
+</SrcMsgs>
+<ResultMsgs>
+<ResultMsg contractId="SP1-REG" termId="CreateCapability" isResponse="true" transformation="CreateCapabilityRes.xslt"/>
+</ResultMsgs>
+</Task>
+<Task id="Setcapabilities" isMsgDriven="true">
+<Out deliveryType="push">
+<Operation name="">
+<Parameters>
+<Parameter>
+<Type>String</Type>
+<Name>Service_ROOTID</Name>
+</Parameter>
+<Parameter>
+<Type>String</Type>
+<Name>Capability_ID</Name>
+</Parameter>
+</Parameters>
+<Return>String</Return>
+</Operation>
+</Out>
+<In isResponse="true">
+<Operation name="">
+<Parameters>
+<Parameter>
+<Type>String</Type>
+<Name>Service_ROOTID</Name>
+</Parameter>
+<Parameter>
+<Type>String</Type>
+<Name>Capability_ID</Name>
+</Parameter>
+</Parameters>
+<Return>String</Return>
+</Operation>
+</In>
+<SrcMsgs transformation="Setcapabilities.xslt">
+<SrcMsg contractId="SP1-REG" termId="Setcapabilities" isResponse="false"/>
+</SrcMsgs>
+<ResultMsgs>
+<ResultMsg contractId="SP1-REG" termId="Setcapabilities" isResponse="true" transformation="SetcapabilitiesRes.xslt"/>
+</ResultMsgs>
+</Task>
+</Tasks>
+</Role>
+<Role id="SC1" name="Consumer1">
+<Tasks>
+<Task id="Task1" isMsgDriven="true">
+<Out deliveryType="push" isResponse="true"/>
+<ResultMsgs>
+<ResultMsg contractId="SC1-REG" termId="GetServiceCapabilityAnon" isResponse="true" transformation="transformation0.xslt"/>
+</ResultMsgs>
+</Task>
+</Tasks>
+</Role>
+<Role id="SC2" name="Consumer2"/>
+<Role id="SP1" name="ServiceProvider"/>
+<Role id="MON" name="MonitoringClientApp"/>
+<Role id="RUP" name="RegisteredUserProvider">
+<Tasks>
+<Task id="Task1" isMsgDriven="true">
+<Out deliveryType="push"/>
+<In isResponse="true"/>
+<SrcMsgs transformation="Task12.xslt">
+<SrcMsg contractId="" termId="" isResponse="false"/>
+<SrcMsg contractId="" termId="" isResponse="false"/>
+</SrcMsgs>
+<ResultMsgs>
+<ResultMsg contractId="" termId="" isResponse="" transformation="transformation0.xslt"/>
+<ResultMsg contractId="" termId="" isResponse="" transformation="Task12.xslt"/>
+</ResultMsgs>
+</Task>
+</Tasks>
+</Role>
+<Role id="USAGE_METER" name="USAGE_METER"/>
+<Role id="PAYMENT_MGR" name="PAYMENT_MGR"/>
+</Roles>
+<Contracts>
+<Contract id="" name="SC1-REG" type="permissive" ruleFile="src/main/rules/SC1-REG.drl">
+<RoleAID/>
+</Contract>
+<Contract id="" name="SC2-REG" type="permissive" ruleFile="src/main/rules/SC2-REG.drl">
+<RoleAID/>
+</Contract>
+<Contract id="" name="SP1-REG" type="permissive" ruleFile="src/main/rules/SP1-REG.drl">
+<RoleAID/>
+</Contract>
+</Contracts>
+<Description>SMC of ROAD4RaaS</Description>
+</SMC>
+  
+  
+  
+  
+  

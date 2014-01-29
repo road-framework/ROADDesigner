@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:smc="http://smc/1.0">
+  <smc:System xmi:id="_1APWgDBKEeGWvupNiNZ6hw">
+    <smc xmi:type="smc:SMC" xmi:id="_2nx8EDBKEeGWvupNiNZ6hw" name="SMC"/>
+  </smc:System>
+  <notation:Diagram xmi:id="_1AiRcDBKEeGWvupNiNZ6hw" type="ROAD" element="_1APWgDBKEeGWvupNiNZ6hw" name="same_extension.road" measurementUnit="Pixel">
+    <children xmi:type="notation:Shape" xmi:id="_2oE3ADBKEeGWvupNiNZ6hw" type="2001" element="_2nx8EDBKEeGWvupNiNZ6hw" fontName="Segoe UI">
+      <children xmi:type="notation:DecorationNode" xmi:id="_2oE3AjBKEeGWvupNiNZ6hw" type="5003">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_2oE3AzBKEeGWvupNiNZ6hw" y="5"/>
+      </children>
+      <children xmi:type="notation:DecorationNode" xmi:id="_2oE3BDBKEeGWvupNiNZ6hw" type="7001"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_2oE3ATBKEeGWvupNiNZ6hw" x="160" y="75" width="406" height="216"/>
+    </children>
+    <styles xmi:type="notation:DiagramStyle" xmi:id="_1AiRcTBKEeGWvupNiNZ6hw"/>
+  </notation:Diagram>
+</xmi:XMI>
