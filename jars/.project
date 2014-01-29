@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<projectDescription>
+	<name>jars</name>
+	<comment></comment>
+	<projects>
+		<project>au.edu.swin.ict.road.designer</project>
+		<project>au.edu.swin.ict.road.designer.diagram</project>
+		<project>au.edu.swin.ict.road.designer.edit</project>
+	</projects>
+	<buildSpec>
+	</buildSpec>
+	<natures>
+	</natures>
+</projectDescription>

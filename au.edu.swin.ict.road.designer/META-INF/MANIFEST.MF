@@ -9,7 +9,7 @@ Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Export-Package: au.edu.swin.ict.road.designer.smc,
  au.edu.swin.ict.road.designer.smc.impl,
- au.edu.swin.ict.road.designer.smc.util
+ au.edu.swin.ict.road.designer.smc.util,
+ au.edu.swin.ict.road.designer.smc.validation
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.ecore;visibility:=reexport
-Bundle-ActivationPolicy: lazy
