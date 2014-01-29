@@ -190,7 +190,7 @@ public class MultiPageSmcDiagramEditor extends MultiPageEditorPart implements
 	protected void createPages() {
 		createPage0();
 		createPage1();
-		showConsole();
+//		showConsole();
 	}
 
 	/**
