@@ -47,6 +47,7 @@ ROAD Designer can be used either as deployable Eclipse plugins or Java projects 
  * ROAD4RaaS composite is available under ROAD4RaaS\ROADDesigner\ROAD4RaaS.road_diagram 
 
 ## Screenshots from the ROAD4RaaS project
+ * Screenshots are available on the wiki page (https://github.com/road-framework/ROADDesigner/wiki)
 
 ## Bug report
  * Tuan Nguyen <tmnguyen at swin dot edu dot au>
